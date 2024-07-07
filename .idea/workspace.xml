@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/DigitalPeople.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/state_of_the_union.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/audio2face.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-ollama-chroma.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat_ollama.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/启动环境.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/exp/log/py_paddlespeech_test2.DESKTOP-49KRPSM.wukai.2024-06-27_12-24-56_129362.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/exp/log/py_paddlespeech_test2.DESKTOP-49KRPSM.wukai.2024-06-27_12-25-08_295375.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/output.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/paddlespeech_test1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/paddlespeech_test2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/paddlespeech_test3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/source/paddlespeech测试.m4a" afterDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="init">
+      <change afterPath="$PROJECT_DIR$/danmu/danmu_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +59,7 @@
     "Python.audio_handler.executor": "Run",
     "Python.chat-ollama-chroma.executor": "Run",
     "Python.chat-ollama.executor": "Run",
+    "Python.danmu_server.executor": "Debug",
     "Python.download.executor": "Run",
     "Python.main.executor": "Run",
     "Python.paddlespeech.executor": "Run",
@@ -102,10 +87,11 @@
       <recent name="D:\workspace\DigitalPeople\DigitalPeople" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\DigitalPeople\DigitalPeople" />
       <recent name="D:\workspace\DigitalPeople\DigitalPeople\tts" />
     </key>
   </component>
-  <component name="RunManager" selected="Batch.启动环境">
+  <component name="RunManager" selected="Python.danmu_server">
     <configuration name="启动环境" type="BatchConfigurationType" factoryName="Batch" temporary="true">
       <module name="DigitalPeople" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -113,6 +99,29 @@
       <option name="PARENT_ENVS" value="true" />
       <option name="SCRIPT_NAME" value="启动环境.bat" />
       <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="danmu_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DigitalPeople" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/danmu" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/danmu/danmu_server.py" />
+      <option name="PARAMETERS" value="-t 1809962513929863168" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="paddlespeech_test3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -138,9 +147,15 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Batch.启动环境" />
+      <item itemvalue="Python.danmu_server" />
+      <item itemvalue="Python.paddlespeech_test3" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Batch.启动环境" />
+        <item itemvalue="Python.danmu_server" />
         <item itemvalue="Python.paddlespeech_test3" />
       </list>
     </recent_temporary>
@@ -170,8 +185,17 @@
       <workItem from="1720020167430" duration="2604000" />
       <workItem from="1720059888761" duration="25116000" />
       <workItem from="1720154914549" duration="3610000" />
-      <workItem from="1720325724024" duration="749000" />
+      <workItem from="1720325724024" duration="2771000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1720363839439</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720363839439</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +214,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,6 +237,7 @@
     <SUITE FILE_PATH="coverage/DigitalPeople$chat_ollama_chroma.coverage" NAME="chat-ollama-chroma 覆盖结果" MODIFIED="1719320960411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech_test3.coverage" NAME="paddlespeech_test3 覆盖结果" MODIFIED="1720086154720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
     <SUITE FILE_PATH="coverage/DigitalPeople$chat_ollama.coverage" NAME="chat-ollama 覆盖结果" MODIFIED="1720084334132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$danmu_server.coverage" NAME="danmu_server 覆盖结果" MODIFIED="1720365004868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/danmu" />
     <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech.coverage" NAME="paddlespeech 覆盖结果" MODIFIED="1719394582099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
     <SUITE FILE_PATH="coverage/DigitalPeople$audio_handler.coverage" NAME="audio_handler 覆盖结果" MODIFIED="1720067762202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/paddlespeech/server/utils" />
     <SUITE FILE_PATH="coverage/DigitalPeople$main.coverage" NAME="main 覆盖结果" MODIFIED="1719317613658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
