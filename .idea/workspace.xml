@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/DigitalPeople.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/state_of_the_union.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/audio2face.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-ollama-chroma.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_ollama.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/启动环境.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts/exp/log/py_paddlespeech_test2.DESKTOP-49KRPSM.wukai.2024-06-27_12-24-56_129362.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts/exp/log/py_paddlespeech_test2.DESKTOP-49KRPSM.wukai.2024-06-27_12-25-08_295375.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts/output.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts/paddlespeech_test1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts/paddlespeech_test2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts/paddlespeech_test3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tts/source/paddlespeech测试.m4a" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/langchain_core/runnables/base.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/paddlespeech/server/bin/paddlespeech_client.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/requests/api.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2iMNLHF3lGbdf9jefwShZXSkdKm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Batch.启动环境.executor": "Run",
+    "Python 测试.Doctests (files 内).executor": "Run",
+    "Python.audio_handler.executor": "Run",
+    "Python.chat-ollama-chroma.executor": "Run",
+    "Python.chat-ollama.executor": "Run",
+    "Python.download.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.paddlespeech.executor": "Run",
+    "Python.paddlespeech_test1.executor": "Run",
+    "Python.paddlespeech_test2.executor": "Run",
+    "Python.paddlespeech_test3.executor": "Run",
+    "Python.tensor_patch_methods.executor": "Debug",
+    "Python.util.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/LLM/real-url",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\DigitalPeople\DigitalPeople\tts\source" />
+      <recent name="D:\workspace\DigitalPeople\DigitalPeople\tts" />
+      <recent name="D:\workspace\DigitalPeople\DigitalPeople" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\DigitalPeople\DigitalPeople\tts" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Batch.启动环境">
+    <configuration name="启动环境" type="BatchConfigurationType" factoryName="Batch" temporary="true">
+      <module name="DigitalPeople" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="./scripts" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="启动环境.bat" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="paddlespeech_test3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DigitalPeople" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tts/paddlespeech_test3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Batch.启动环境" />
+        <item itemvalue="Python.paddlespeech_test3" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17890.14" />
+        <option value="bundled-python-sdk-5b207ade9991-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17890.14" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="" />
+      <created>1719296428994</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719296428994</updated>
+      <workItem from="1719296454508" duration="159000" />
+      <workItem from="1719296618523" duration="9958000" />
+      <workItem from="1719330107647" duration="567000" />
+      <workItem from="1719392342787" duration="2701000" />
+      <workItem from="1719395142010" duration="13089000" />
+      <workItem from="1719493318417" duration="4337000" />
+      <workItem from="1720020167430" duration="2604000" />
+      <workItem from="1720059888761" duration="25116000" />
+      <workItem from="1720154914549" duration="3610000" />
+      <workItem from="1720325724024" duration="749000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../../python/Python310/Lib/site-packages/paddle/base/dygraph/tensor_patch_methods.py</url>
+          <line>892</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DigitalPeople$tensor_patch_methods.coverage" NAME="tensor_patch_methods 覆盖结果" MODIFIED="1719396234570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../python/Python310/Lib/site-packages/paddle/base/dygraph" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$download.coverage" NAME="download 覆盖结果" MODIFIED="1720060666130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../LLM/paddlespeech/PaddleSpeech/demos/speech_web/speech_server/.venv/Lib/site-packages/paddlespeech/cli" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech_test1.coverage" NAME="paddlespeech_test1 覆盖结果" MODIFIED="1719467563153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$Doctests__files__.coverage" NAME="Doctests (files 内) 覆盖结果" MODIFIED="1720061374647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../LLM/paddlespeech/PaddleSpeech/demos/speech_web/speech_server/.venv/Lib/site-packages/librosa/util" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$util.coverage" NAME="util 覆盖结果" MODIFIED="1720076983761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/paddlespeech/server" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$chat_ollama_chroma.coverage" NAME="chat-ollama-chroma 覆盖结果" MODIFIED="1719320960411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech_test3.coverage" NAME="paddlespeech_test3 覆盖结果" MODIFIED="1720086154720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$chat_ollama.coverage" NAME="chat-ollama 覆盖结果" MODIFIED="1720084334132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech.coverage" NAME="paddlespeech 覆盖结果" MODIFIED="1719394582099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$audio_handler.coverage" NAME="audio_handler 覆盖结果" MODIFIED="1720067762202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/paddlespeech/server/utils" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$main.coverage" NAME="main 覆盖结果" MODIFIED="1719317613658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech_test2.coverage" NAME="paddlespeech_test2 覆盖结果" MODIFIED="1719462306698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
+  </component>
+</project>
