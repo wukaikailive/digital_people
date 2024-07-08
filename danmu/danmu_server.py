@@ -54,6 +54,7 @@ from rsocket.rsocket_client import RSocketClient
 from rsocket.streams.stream_from_async_generator import StreamFromAsyncGenerator
 from rsocket.transports.aiohttp_websocket import TransportAioHttpClient
 
+import audio2face
 import tts_client
 
 subscribe_payload_json = {
@@ -88,7 +89,9 @@ class ChannelSubscriber(Subscriber):
             )
             content = msg['content']
             # todo 调用后续处理流程
-            tts_client.start(content)
+            print('接收到用户消息：' + content)
+            if content.startswith('#'):
+                tts_client.start(content.strip("#"))
         elif msg_type == "GIFT":
             msg = msg_dto['msg']
             logging.info(
@@ -202,4 +205,5 @@ if __name__ == '__main__':
     uri = args.uri
     subscribe_payload_json["data"]["taskIds"] = args.t
     print(subscribe_payload_json)
+    audio2face.init()
     asyncio.run(main(uri))
