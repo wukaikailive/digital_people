@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="添加获取弹幕功能">
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/digital_people.py" afterDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="refactor:增加全局变量和单元测试">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/output/output.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runtime_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/digital_people.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/paddlespeech_test4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/recursively_split_by_character.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio2face.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio2face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/danmu/danmu_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/barrage/barrage_server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tts/output.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/tts_client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,8 +185,8 @@
       <item itemvalue="Batch.启动环境" />
       <item itemvalue="Python.digital_people" />
       <item itemvalue="Python 测试.digital_people.TestDigitalPeopleMethods.test_audio2face 的 Python 测试" />
-      <item itemvalue="Python 测试.digital_people.TestDigitalPeopleMethods.test_chat 的 Python 测试" />
       <item itemvalue="Python 测试.digital_people.TestDigitalPeopleMethods.test_text_split 的 Python 测试" />
+      <item itemvalue="Python 测试.digital_people.TestDigitalPeopleMethods.test_chat 的 Python 测试" />
     </list>
     <recent_temporary>
       <list>
@@ -236,6 +228,7 @@
       <workItem from="1720484878014" duration="7562000" />
       <workItem from="1720522308796" duration="12946000" />
       <workItem from="1720630292824" duration="5011000" />
+      <workItem from="1720672896087" duration="171000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -253,7 +246,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720366131661</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor:增加全局变量和单元测试">
+      <option name="closed" value="true" />
+      <created>1720672987070</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720672987070</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor:增加全局变量和单元测试">
+      <option name="closed" value="true" />
+      <created>1720673020551</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720673020551</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +283,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
     <MESSAGE value="添加获取弹幕功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加获取弹幕功能" />
+    <MESSAGE value="refactor:增加全局变量和单元测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:增加全局变量和单元测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
