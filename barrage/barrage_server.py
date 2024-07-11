@@ -56,6 +56,7 @@ from rsocket.transports.aiohttp_websocket import TransportAioHttpClient
 
 import audio2face
 import tts_client
+import config
 
 subscribe_payload_json = {
     "data": {
@@ -75,7 +76,7 @@ class ChannelSubscriber(Subscriber):
         self.subscription = subscription
         self.subscription.request(0x7FFFFFFF)
 
-    # TODO 收到消息回调
+    # 收到消息回调
     def on_next(self, value: Payload, is_complete=False):
         msg_dto = json.loads(value.data)
         if type(msg_dto) != dict:
@@ -88,7 +89,7 @@ class ChannelSubscriber(Subscriber):
                 f"{msg_dto['roomId']} 收到弹幕 {str(msg['badgeLevel']) + str(msg['badgeName']) if msg['badgeLevel'] != 0 else ''} {msg['username']}({str(msg['uid'])})：{msg['content']}"
             )
             content = msg['content']
-            # todo 调用后续处理流程
+            # 调用后续处理流程
             print('接收到用户消息：' + content)
             if content.startswith('#'):
                 tts_client.start(content.strip("#"))
@@ -187,6 +188,13 @@ async def main(websocket_uri):
         await channel_completion_event.wait()
 
 
+def start():
+    url = config.barrage_server_url
+    task_ids = config.barrage_task_ids
+    subscribe_payload_json["data"]["taskIds"] = task_ids
+    asyncio.run(main(url))
+
+
 if __name__ == '__main__':
     """
     参考：https://github.com/rsocket/rsocket-py
@@ -198,7 +206,7 @@ if __name__ == '__main__':
     """
     logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser()
-    parser.add_argument('--uri', default='ws://localhost:9898', type=str, help="WebSocket Server Uri")
+    parser.add_argument('--uri', default=config.barrage_server_url, type=str, help="WebSocket Server Uri")
     parser.add_argument('-t', action='append', required=True, help="taskIds")
     args = parser.parse_args()
 
