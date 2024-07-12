@@ -46,30 +46,30 @@ def load_usd():
     print(response.content)
 
 
-def set_root_path():
+def set_root_path(path=root_path):
     data = {
         "a2f_player": a2f_player,
-        "dir_path": root_path
+        "dir_path": path
     }
     url = a2f_server_url + '/A2F/Player/SetRootPath'
     response = requests.post(url, headers=headers, json=data)
     print("set_root_path: ", response.content)
 
 
-def get_current_track():
+def get_current_track(path=root_path):
     data = {
         "a2f_player": a2f_player,
-        "dir_path": root_path
+        "dir_path": path
     }
     url = a2f_server_url + '/A2F/Player/GetCurrentTrack'
     response = requests.get(url, headers=headers, json=data)
     print("get_current_track: ", response.content)
 
 
-def set_track():
+def set_track(file_name=wav_file_name):
     data = {
         "a2f_player": a2f_player,
-        "file_name": wav_file_name,
+        "file_name": file_name,
         "time_range": [
             0,
             -1
@@ -94,6 +94,14 @@ def play():
         "a2f_player": a2f_player
     }
     url = a2f_server_url + '/A2F/Player/Play'
+    requests.post(url, headers=headers, json=data)
+
+
+def pause():
+    data = {
+        "a2f_player": a2f_player
+    }
+    url = a2f_server_url + '/A2F/Player/Pause'
     requests.post(url, headers=headers, json=data)
 
 

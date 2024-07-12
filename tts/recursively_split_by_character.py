@@ -12,10 +12,13 @@ text_splitter = RecursiveCharacterTextSplitter(
         "\u3001",  # Ideographic comma
         "\uff0e",  # Fullwidth full stop
         "\u3002",  # Ideographic full stop
+        "\uff1b",  # ;
+        "\uff1f",  # ?
+        "\uff01",  # !
         "",
     ],
-    chunk_size=60,
-    chunk_overlap=20,
+    chunk_size=100,
+    chunk_overlap=0,
     length_function=len,
     is_separator_regex=False,
     # Existing args
