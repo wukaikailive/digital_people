@@ -3,11 +3,10 @@ from time import sleep
 
 import audio2face
 import tts_client
-import barrage.barrage_server
-import chat_ollama
+from chatollama import chat_ollama
 import tts.recursively_split_by_character as recursive_split_by_character
 import digital_people
-
+import chatollama.chat_ollama_api as chat_ollama_api
 
 class TestDigitalPeopleMethods(unittest.TestCase):
 
@@ -76,6 +75,9 @@ class TestDigitalPeopleMethods(unittest.TestCase):
                               "(That's about 500 characters, I hope!)"]
                              )
 
+    def test_chat_ollama_chat_api(self):
+        result = chat_ollama_api.chat("你好吗？")
+        self.assertIsNotNone(result)
 
 if __name__ == '__main__':
     unittest.main()

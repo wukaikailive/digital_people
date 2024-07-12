@@ -19,6 +19,20 @@ chat_server_url = "http://127.0.0.1:11434"
 chat_model_name = "llama3:latest"
 
 """
+chat_ollama配置
+"""
+# chat_ollama服务地址
+chat_ollama_server_url = "http://127.0.0.1:3000"
+# 指令id
+chat_ollama_instruction_id = 3  # 知心姐姐
+# 是否使用指令
+chat_ollama_use_instruction = True
+# 知识库id
+chat_ollama_knowledgebase_id = 1  # 测试
+# 是否是否知识库
+chat_ollama_use_knowledgebase = True
+
+"""
 audio2face配置
 """
 # usd文件地址

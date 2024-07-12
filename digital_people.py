@@ -3,7 +3,7 @@ import threading
 from datetime import datetime
 from time import sleep
 import audio2face
-import chat_ollama
+from chatollama import chat_ollama
 import config
 import tts_client
 import barrage.barrage_server as barrage_server

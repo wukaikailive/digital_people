@@ -1,9 +1,8 @@
-import os.path
 from time import sleep
 
 from paddlespeech.server.bin.paddlespeech_client import TTSClientExecutor
 import audio2face
-import chat_ollama
+from chatollama import chat_ollama
 import config
 import runtime_status
 
