@@ -31,6 +31,11 @@ chat_ollama_use_instruction = True
 chat_ollama_knowledgebase_id = 1  # 测试
 # 是否是否知识库
 chat_ollama_use_knowledgebase = True
+#
+# chat_ollama_family = "llama"
+chat_ollama_family = "chatglm"
+# chat_ollama_model = "llama:latest"
+chat_ollama_model = "glm4:9b"
 
 """
 audio2face配置

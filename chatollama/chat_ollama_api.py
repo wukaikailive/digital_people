@@ -7,9 +7,9 @@ import config
 
 def chat(inputs):
     data = {
-        "family": "llama",
+        "family": config.chat_ollama_family,
         "knowledgebaseId": 1,
-        "model": "llama3:latest",
+        "model": config.chat_ollama_model,
         "messages": [
             {
                 "role": "system",
@@ -19,7 +19,7 @@ def chat(inputs):
             {
                 "role": "user",
                 "content": inputs,
-                "model": "llama/llama3:latest",
+                "model": f"{config.chat_ollama_family}/{config.chat_ollama_model}",
             }
         ],
         "stream": False
