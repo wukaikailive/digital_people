@@ -5,7 +5,7 @@ text_splitter = RecursiveCharacterTextSplitter(
         "\n\n",
         "\n",
         " ",
-        ".",
+        # ".",
         ",",
         "\u200b",  # Zero-width space
         "\uff0c",  # Fullwidth comma

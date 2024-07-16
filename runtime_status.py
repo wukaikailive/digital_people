@@ -14,3 +14,5 @@ isAudioPlaying = False
 # 是否正在生成回答
 isAnswerCreating = False
 
+# 是否空闲
+isIdle = True

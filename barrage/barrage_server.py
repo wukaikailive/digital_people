@@ -91,8 +91,8 @@ class ChannelSubscriber(Subscriber):
             content = msg['content']
             # 调用后续处理流程
             print('接收到用户消息：' + content)
-            if content.startswith('#'):
-                tts_client.start(content.strip("#"))
+            if content.startswith(config.barrage_trim_start_chr):
+                tts_client.start(content.strip(config.barrage_trim_start_chr))
         elif msg_type == "GIFT":
             msg = msg_dto['msg']
             logging.info(

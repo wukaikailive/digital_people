@@ -1,6 +1,22 @@
 """
 数字人项目配置项
 """
+# 是否使用分段生成语音的方式
+use_audio_split = True
+# 是否使用chat_ollama，否则将直接使用ollama
+use_chat_ollama = True
+# 是否对chat_ollama结果进行过滤，因为chat_ollama如果存在知识库的话，其结果是markdown格式，不方便输出
+open_chat_ollama_result_filter = True
+# 交流环境，分为直播 live 和一对一 one
+communication_env = "live"
+communication_env_live = "live"
+communication_env_one = "one"
+# 是否启用一对一打断流程。如果是在真人一对一交流对话的过程中，如果上一次的响应还没结束，用户再次说话，那么应该停止处理上一次交互。
+open_one_immediate_interrupt = False
+# 是否启用直播打断流程。如果不启用，则当前数字人会完整走完当次流程，才会恢复响应
+open_live_immediate_interrupt = False
+# 是否使用文本规范化
+use_text_normalization = True
 
 """
 弹幕配置
@@ -9,6 +25,15 @@
 barrage_server_url = "ws://localhost:9898"
 # 监听的弹幕任务，从弹幕服务后端获取
 barrage_task_ids = ["1809962513929863168"]
+# 弹幕触发的前缀
+barrage_trim_start_chr = "#"
+
+"""
+直播配置
+"""
+live_script_file_path = "D:/workspace/DigitalPeople/DigitalPeople/live/book/live-script-book.yaml"
+
+
 
 """
 大语言模型配置
@@ -30,7 +55,7 @@ chat_ollama_use_instruction = True
 # 知识库id
 chat_ollama_knowledgebase_id = 1  # 测试
 # 是否是否知识库
-chat_ollama_use_knowledgebase = True
+chat_ollama_use_knowledgebase = False
 #
 # chat_ollama_family = "llama"
 chat_ollama_family = "chatglm"

@@ -18,6 +18,22 @@ class TestDigitalPeopleMethods(unittest.TestCase):
     def test_tts(self):
         pass
 
+    def test_chat_audio2face(self):
+        output = chat_ollama.call_ollama("请讲一个100字左右的故事")
+        print(output)
+        audio2face.init()
+        tts_client.call_tts_server(output)
+        audio2face.set_track()
+        sleep(0.5)
+        audio2face.play()
+
+    def test_chat_audio2face_with_split(self):
+        output = chat_ollama.call_ollama("请讲一个300字左右的故事")
+        print(output)
+        audio2face.init()
+        dispatcher = digital_people.AudioEnginePlayDispatcher(output)
+        dispatcher.start()
+
     def test_audio2face_load_usd_file(self):
         pass
 

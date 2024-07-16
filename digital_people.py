@@ -3,6 +3,7 @@ import threading
 from datetime import datetime
 from time import sleep
 import audio2face
+import runtime_status
 from chatollama import chat_ollama
 import config
 import tts_client
@@ -37,6 +38,7 @@ class AudioEnginePlayDispatcher:
     id: str
 
     def __init__(self, text):
+        self.status = []
         self.text = text
         self.texts = recursively_split_by_character.split_text(text)
         self.pool = Pool(len(self.texts) + 1)
@@ -63,8 +65,14 @@ class AudioEnginePlayDispatcher:
             for thread in threads:
                 thread.join()
         except Exception as e:
+            print("遇到错误")
             traceback.print_exc()
-            exit()
+            # exit()
+        finally:
+            runtime_status.isAudioPlaying = False
+            runtime_status.isSpeaking = False
+            runtime_status.isIdle = True
+            print("处理完成")
 
     def tts_threads(self):
         for index, text in enumerate(self.texts):
@@ -91,11 +99,12 @@ class AudioEnginePlayDispatcher:
 
     def play(self):
         playing_stat = None
+        size = len(self.texts)
         while True:
             index = None
             finished_stat = self.get_finished()
             # 如果没有已完成的语音，说明整个语音列表都还没开始播放，此时播放第一条
-            if finished_stat is None:
+            if finished_stat is None or size == 1:
                 index = 0
             else:
                 index = finished_stat.index + 1

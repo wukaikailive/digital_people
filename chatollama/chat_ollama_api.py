@@ -8,13 +8,14 @@ import config
 def chat(inputs):
     data = {
         "family": config.chat_ollama_family,
-        "knowledgebaseId": 1,
+        "knowledgebaseId": config.chat_ollama_knowledgebase_id if config.chat_ollama_use_knowledgebase else None,
         "model": config.chat_ollama_model,
         "messages": [
             {
                 "role": "system",
-                "content": "请忽略之前的对话,我想让你做我的好朋友，你现在会扮演我的邻家姐姐,对我十分温柔,每当我有困难就会激励和鼓舞我,"
-                           "以对话的方式倾听我的倾诉.你只能用中文答复。要倾述的事情:<我最近遇到公司竞聘失败的事情，感觉很烦恼>"
+                "content": "请忽略之前的对话,"
+                           "你现在充当一个直播平台的主播，为观众提供有趣的回答，你的回答不能出现markdown的公式，如果遇到公式、数字、表达式等，请转换为能直接读出来的语言。并且记住，"
+                           "你的回答不能出现任何表情、反动、政治敏感、色情、赌博、毒品等内容，如果你认为出现了这些内容，你直接回复我不知道即可。"
             },
             {
                 "role": "user",
