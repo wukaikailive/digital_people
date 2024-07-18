@@ -9,11 +9,14 @@ import tts_client
 from live import audio_util
 from live.live_script_parser import Job, LiveScriptVisitor, AudioJob, LiveScriptV1, Env
 import logging
+
 logger = logging.getLogger(__name__)
 logging.getLogger().setLevel(logging.DEBUG)
 
+
 class AudioJobVisitor(LiveScriptVisitor):
     audio_jobs: list[AudioJob] = []
+
     def __init__(self, data):
         super().__init__(data)
 
@@ -44,11 +47,16 @@ class LiveScriptExecutor:
         self.init_audio2face()
 
     def execute(self):
+        loop_times = self.env.loop_times
+        times = 0
         while True:
             self.execute_thread = threading.Thread(target=self.execute_inner)
             self.execute_thread.start()
             self.execute_thread.join()
+            times += 1
             if not self.live_script.env.loop:
+                break
+            if loop_times != 0 and times >= loop_times:
                 break
 
     def execute_inner(self):

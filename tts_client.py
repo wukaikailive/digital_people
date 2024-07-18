@@ -1,7 +1,7 @@
 import threading
 from time import sleep
 
-from paddlespeech.server.bin.paddlespeech_client import TTSClientExecutor,TextClientExecutor
+from paddlespeech.server.bin.paddlespeech_client import TTSClientExecutor, TextClientExecutor
 import audio2face
 import digital_people
 from chatollama import chat_ollama
@@ -18,6 +18,7 @@ def call_text_server(inputs):
     )
     print("规范化后文本为：" + res)
     return res
+
 
 def call_tts_server(inputs, path=config.speech_wav_save_path, file_name=config.speech_wav_save_name):
     """
@@ -62,12 +63,18 @@ def start(inputs):
     else:
         print("跳过响应：" + inputs)
 
+
 def start_thread(inputs):
     # 如果是直播模式，且开启了打断，那么直接正常响应，或者数字人空闲
     runtime_status.isIdle = False
     # runtime_status.isAnswerCreating = True
-    gpt_output = chat_ollama.call_ollama(inputs)
-    # runtime_status.isAnswerCreating = False
+    try:
+        gpt_output = chat_ollama.call_ollama(inputs)
+    except Exception as e:
+        runtime_status.isIdle = True
+        print(e)
+        return
+        # runtime_status.isAnswerCreating = False
     # runtime_status.isAudioCreating = True
     if config.use_text_normalization:
         gpt_output = call_text_server(gpt_output)

@@ -1,13 +1,19 @@
 import logging
+import random
+from threading import Timer, Thread
 from time import sleep
 from typing import Any
+from multiprocessing import Process
 
 import yaml
 
 import audio2face
+import barrage.barrage_server
 import config
 import live.live_script_parser
 import live.audio_util as audio_util
+from barrage import barrage_server
+from util.StoppableThread import StoppableThread
 
 logger = logging.getLogger(__name__)
 
@@ -56,6 +62,8 @@ class Job:
     value: str
     caption: str = None
     background_music: str = None
+
+    live_script = None
 
     def __init__(self, key, data):
         self.data = data
@@ -117,6 +125,7 @@ class AudioJob(Job):
     __env: Env = None
 
     def execute(self, live_script):
+        self.live_script = live_script
         self.__env = live_script.env
         h = audio_util.str_hash(self.value) + '.wav'
         cache_path = self.get_audio_cache_path()
@@ -142,10 +151,18 @@ class InteractionJob(Job):
     duration: int = 1800
     # 空闲时的音频，默认随机播放
     idle_audios: list[AudioJob] = []
-    # 空闲时音频播放模型，random、order
+    # 空闲时音频播放模式，random、order
     idle_audio_play_mode = "random"
+    # 空闲开始时语音
+    idle_start_audio: AudioJob
+    # 空闲结束时语音
+    idle_end_audio: AudioJob
     # 空闲计时
     idle_timing: int = 120
+
+    __barrage_thread: Process = None
+    __idle_timer: Timer = None
+    __idle_audio_thread: Thread = None
 
     def convert(self, key: str, data: dict):
         super().convert(key, data)
@@ -153,13 +170,97 @@ class InteractionJob(Job):
         self.idle_timing = data.get("idle_timing", self.idle_timing)
         self.idle_audio_play_mode = data.get("idle_audio_play_mode", self.idle_audio_play_mode)
         self.idle_timing = data.get("idle_timing", self.idle_timing)
-        # todo idle_audios
+        idle_audios: dict = data.get("idle_audios")
+        self.idle_audios = []
+        # 处理 idle_audios
+        if idle_audios is not None and len(idle_audios) != 0:
+            for key, value in idle_audios.items():
+                job = AudioJob(key, value)
+                self.idle_audios.append(job)
+        idle_start_audio = data.get("idle_start_audio")
+        if idle_start_audio is not None:
+            self.create_idle_start_audio(idle_start_audio)
+        idle_end_audio = data.get("idle_end_audio")
+        if idle_end_audio is not None:
+            self.create_idle_end_audio(idle_end_audio)
 
     def execute(self, live_script):
+        self.live_script = live_script
         duration = self.duration
         logger.info("开始互动")
-        # todo 启动弹幕服务
+        # 启动弹幕服务
+        self.on_barrage_listing()
+        self.start_timing()
+        self.idle_timing_timer()
+        self.wait_barrage_finished()
         logger.info("结束互动")
+        self.on_destroy()
+        
+    def on_destroy(self):
+        if self.__idle_timer.is_alive():
+            self.__idle_timer.cancel()
+        # todo 停止播放音频
+
+    def on_barrage_listing(self):
+        logger.info("启动弹幕服务")
+        self.__barrage_thread = Process(target=barrage_server.start)
+        self.__barrage_thread.start()
+
+    def off_barrage_listing(self):
+        if self.__barrage_thread.is_alive():
+            self.__barrage_thread.terminate()
+
+    def start_timing(self):
+        logger.info(f"开始互动任务计时，倒计时{self.duration}秒")
+        Timer(self.duration, self.timing_finished).start()
+
+    def timing_finished(self):
+        logger.info("互动任务计时结束，即将关闭弹幕服务")
+        self.off_barrage_listing()
+
+    def idle_timing_timer(self):
+        logger.info(f"开始空闲计时，倒计时{self.idle_timing}秒")
+        self.__idle_timer = Timer(self.idle_timing, self.idle_timing_end)
+        self.__idle_timer.start()
+
+    def idle_timing_end(self):
+        logger.info("空闲计时结束，开始播放预定义话术")
+        self.__idle_audio_thread = Thread(target=self.play_idle_audio_thread)
+        self.__idle_audio_thread.setDaemon(True)
+        self.__idle_audio_thread.start()
+
+    def play_idle_audio_thread(self):
+        self.play_idle_start_audio()
+        self.play_idle_audio()
+        self.idle_timing_timer()
+
+    def play_idle_audio(self):
+        if len(self.idle_audios) == 0:
+            return
+        if self.idle_audio_play_mode == "random":
+            # todo 顺序播放未支持
+            index = random.randint(0, len(self.idle_audios) - 1)
+            audio = self.idle_audios[index]
+            audio.execute(self.live_script)
+
+    def wait_barrage_finished(self):
+        if self.__barrage_thread.is_alive():
+            self.__barrage_thread.join()
+
+    def create_idle_start_audio(self, data):
+        self.idle_start_audio = AudioJob("idle_start_audio", data)
+
+    def play_idle_start_audio(self):
+        if self.idle_start_audio is not None:
+            self.idle_start_audio.execute(self.live_script)
+
+    def create_idle_end_audio(self, data):
+        self.idle_end_audio = AudioJob("idle_end_audio", data)
+
+    def play_idle_end_audio(self):
+        if self.idle_end_audio is not None:
+            self.idle_end_audio.execute(self.live_script)
+
 
 class IntervalJob(Job):
     """
@@ -252,6 +353,9 @@ class LiveScriptVisitor:
         self.__visit_children_jobs(data.jobs)
 
     def visit_interaction_job(self, data: InteractionJob):
+        self.__visit_children_jobs(data.idle_audios)
+        self.visit_audio_job(data.idle_start_audio)
+        self.visit_audio_job(data.idle_end_audio)
         pass
 
     def visit_interval_job(self, data: IntervalJob):
