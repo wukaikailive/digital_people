@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:增加直播计划执行功能">
-      <change afterPath="$PROJECT_DIR$/live/book/live-script-book-interaction-job.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live/socketio_sercer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/StoppableThread.py" afterDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:增加互动任务执行功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/book/live-script-book.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/live/book/live-script-book.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/live_script_executor.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/live_script_executor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/live/live_script_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/live_script_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/启动环境.bat" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/启动环境.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_live_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_live_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/tts_client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +272,7 @@
       <workItem from="1721017200504" duration="18872000" />
       <workItem from="1721090631888" duration="19847000" />
       <workItem from="1721186875245" duration="10423000" />
-      <workItem from="1721263576080" duration="12085000" />
+      <workItem from="1721263576080" duration="12660000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -362,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721115642586</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat:增加互动任务执行功能">
+      <option name="closed" value="true" />
+      <created>1721288552741</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721288552741</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +390,8 @@
     <MESSAGE value="feat:增加glm4:9b" />
     <MESSAGE value="feat:添加paddlespeech语音服务的配置文件" />
     <MESSAGE value="feat:增加直播计划执行功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:增加直播计划执行功能" />
+    <MESSAGE value="feat:增加互动任务执行功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:增加互动任务执行功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -399,11 +400,6 @@
           <url>file://$PROJECT_DIR$/../../../python/Python310/Lib/site-packages/paddle/base/dygraph/tensor_patch_methods.py</url>
           <line>892</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/live/live_script_parser.py</url>
-          <line>234</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

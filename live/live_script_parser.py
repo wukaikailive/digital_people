@@ -1,5 +1,6 @@
 import logging
 import random
+import time
 from threading import Timer, Thread
 from time import sleep
 from typing import Any
@@ -273,6 +274,11 @@ class IntervalJob(Job):
         super().convert(key, data)
         self.value = data.get("value", self.value)
 
+    def execute(self, live_script):
+        duration = self.value
+        logger.info(f"开始等待，{duration}秒")
+        time.sleep(duration)
+        logger.info("结束等待")
 
 class LiveScriptV1:
     version: int
