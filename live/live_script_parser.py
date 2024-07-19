@@ -14,7 +14,7 @@ import config
 import live.live_script_parser
 import live.audio_util as audio_util
 from barrage import barrage_server
-from util.StoppableThread import StoppableThread
+from live.caption_manager import CaptionManager
 
 logger = logging.getLogger(__name__)
 
@@ -66,8 +66,10 @@ class Job:
 
     live_script = None
 
-    def __init__(self, key, data):
+    def __init__(self, key, data, live_script):
+        self.key = key
         self.data = data
+        self.live_script = live_script
         self.convert(key, data)
 
     def convert(self, key: str, data: dict):
@@ -89,8 +91,12 @@ class Job:
     def accept(self, visitor: Any):
         pass
 
-    def execute(self, live_script):
-        pass
+    def execute(self):
+        self.send_caption()
+
+    def send_caption(self):
+        if self.caption is not None and self.live_script is not None:
+            self.live_script.send_caption(self.caption)
 
 
 class GroupJob(Job):
@@ -104,15 +110,16 @@ class GroupJob(Job):
         data = data['jobs']
         if data is None:
             raise Exception("jobs 字段不存在")
-        self.jobs = LiveScriptV1.convert_jobs_util(data)
+        self.jobs = LiveScriptV1.convert_jobs_util(data, self.live_script)
 
     def accept(self, visitor: Any):
         return visitor.visit(self)
 
-    def execute(self, live_script):
+    def execute(self):
+        super().execute()
         #  todo 播放背景音乐
         for job in self.jobs:
-            job.execute(live_script)
+            job.execute()
 
     def get_audio_audio_name(self, value):
         return audio_util.str_hash(value) + ".wav"
@@ -125,9 +132,9 @@ class AudioJob(Job):
     audio_duration: float = 0
     __env: Env = None
 
-    def execute(self, live_script):
-        self.live_script = live_script
-        self.__env = live_script.env
+    def execute(self):
+        super().execute()
+        self.__env = self.live_script.env
         h = audio_util.str_hash(self.value) + '.wav'
         cache_path = self.get_audio_cache_path()
         file_path = cache_path + "/" + h
@@ -155,9 +162,9 @@ class InteractionJob(Job):
     # 空闲时音频播放模式，random、order
     idle_audio_play_mode = "random"
     # 空闲开始时语音
-    idle_start_audio: AudioJob
+    idle_start_audio: AudioJob = None
     # 空闲结束时语音
-    idle_end_audio: AudioJob
+    idle_end_audio: AudioJob = None
     # 空闲计时
     idle_timing: int = 120
 
@@ -176,7 +183,7 @@ class InteractionJob(Job):
         # 处理 idle_audios
         if idle_audios is not None and len(idle_audios) != 0:
             for key, value in idle_audios.items():
-                job = AudioJob(key, value)
+                job = AudioJob(key, value, self.live_script)
                 self.idle_audios.append(job)
         idle_start_audio = data.get("idle_start_audio")
         if idle_start_audio is not None:
@@ -185,8 +192,8 @@ class InteractionJob(Job):
         if idle_end_audio is not None:
             self.create_idle_end_audio(idle_end_audio)
 
-    def execute(self, live_script):
-        self.live_script = live_script
+    def execute(self):
+        super().execute()
         duration = self.duration
         logger.info("开始互动")
         # 启动弹幕服务
@@ -196,7 +203,7 @@ class InteractionJob(Job):
         self.wait_barrage_finished()
         logger.info("结束互动")
         self.on_destroy()
-        
+
     def on_destroy(self):
         if self.__idle_timer.is_alive():
             self.__idle_timer.cancel()
@@ -242,25 +249,25 @@ class InteractionJob(Job):
             # todo 顺序播放未支持
             index = random.randint(0, len(self.idle_audios) - 1)
             audio = self.idle_audios[index]
-            audio.execute(self.live_script)
+            audio.execute()
 
     def wait_barrage_finished(self):
         if self.__barrage_thread.is_alive():
             self.__barrage_thread.join()
 
     def create_idle_start_audio(self, data):
-        self.idle_start_audio = AudioJob("idle_start_audio", data)
+        self.idle_start_audio = AudioJob("idle_start_audio", data, self.live_script)
 
     def play_idle_start_audio(self):
         if self.idle_start_audio is not None:
-            self.idle_start_audio.execute(self.live_script)
+            self.idle_start_audio.execute()
 
     def create_idle_end_audio(self, data):
-        self.idle_end_audio = AudioJob("idle_end_audio", data)
+        self.idle_end_audio = AudioJob("idle_end_audio", data, self.live_script)
 
     def play_idle_end_audio(self):
         if self.idle_end_audio is not None:
-            self.idle_end_audio.execute(self.live_script)
+            self.idle_end_audio.execute()
 
 
 class IntervalJob(Job):
@@ -274,21 +281,30 @@ class IntervalJob(Job):
         super().convert(key, data)
         self.value = data.get("value", self.value)
 
-    def execute(self, live_script):
+    def execute(self):
+        super().execute()
         duration = self.value
         logger.info(f"开始等待，{duration}秒")
         time.sleep(duration)
         logger.info("结束等待")
+
 
 class LiveScriptV1:
     version: int
     env: Env
     jobs: list[Job]
 
+    __caption_manager: CaptionManager
+
     def __init__(self, data: dict):
         self.data = data
         self.version = 1
         self.convert()
+        self.__caption_manager = CaptionManager(config.socketio_server, config.socketio_port)
+        self.__caption_manager.connect()
+
+    def send_caption(self, msg):
+        self.__caption_manager.send(msg)
 
     def convert(self):
         self.convert_version()
@@ -307,7 +323,7 @@ class LiveScriptV1:
         self.env = Env.convert(data)
 
     @staticmethod
-    def convert_jobs_util(data: dict):
+    def convert_jobs_util(data: dict, live_script):
         jobs: list[Job] = []
         for key, value in data.items():
             job_type: str = value['type']
@@ -317,7 +333,8 @@ class LiveScriptV1:
             name = f"{job_type.capitalize()}Job"
             class_name = getattr(module, name)
             print(type(class_name))
-            clazz = class_name(key, value)
+            clazz = class_name(key, value, live_script)
+            # 添加全局
             jobs.append(clazz)
         return jobs
 
@@ -325,7 +342,7 @@ class LiveScriptV1:
         data = self.data['jobs']
         if data is None:
             raise Exception("jobs 字段不存在")
-        self.jobs = LiveScriptV1.convert_jobs_util(data)
+        self.jobs = LiveScriptV1.convert_jobs_util(data, self)
 
 
 class LiveScriptVisitor:
@@ -360,9 +377,10 @@ class LiveScriptVisitor:
 
     def visit_interaction_job(self, data: InteractionJob):
         self.__visit_children_jobs(data.idle_audios)
-        self.visit_audio_job(data.idle_start_audio)
-        self.visit_audio_job(data.idle_end_audio)
-        pass
+        if data.idle_start_audio is not None:
+            self.visit_audio_job(data.idle_start_audio)
+        if data.idle_end_audio is not None:
+            self.visit_audio_job(data.idle_end_audio)
 
     def visit_interval_job(self, data: IntervalJob):
         pass

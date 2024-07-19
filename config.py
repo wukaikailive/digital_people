@@ -19,6 +19,12 @@ open_live_immediate_interrupt = False
 use_text_normalization = True
 
 """
+socketio 服务配置
+"""
+socketio_server = "http://127.0.0.1"
+socketio_port = 8082
+
+"""
 弹幕配置
 """
 # 弹幕服务地址

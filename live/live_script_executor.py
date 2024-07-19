@@ -62,7 +62,7 @@ class LiveScriptExecutor:
     def execute_inner(self):
         jobs = self.live_script.jobs
         for job in jobs:
-            job.execute(self.live_script)
+            job.execute()
 
     def init_audio(self):
         self.create_audio_cache_path()
@@ -95,3 +95,5 @@ class LiveScriptExecutor:
         self.cache_path = config.speech_wav_save_path + "/" + self.env.name
         if not os.path.exists(self.cache_path):
             os.makedirs(self.cache_path)
+
+
