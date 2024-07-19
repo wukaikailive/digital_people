@@ -14,6 +14,7 @@ import config
 import live.live_script_parser
 import live.audio_util as audio_util
 from barrage import barrage_server
+from live.background_music_manager import BackgroundMusicManager
 from live.caption_manager import CaptionManager
 
 logger = logging.getLogger(__name__)
@@ -97,6 +98,8 @@ class Job:
     def send_caption(self):
         if self.caption is not None and self.live_script is not None:
             self.live_script.send_caption(self.caption)
+        if self.background_music is not None and self.live_script is not None:
+            self.live_script.play_background_music(self.background_music)
 
 
 class GroupJob(Job):
@@ -296,12 +299,19 @@ class LiveScriptV1:
 
     __caption_manager: CaptionManager
 
+    __background_music_manager: BackgroundMusicManager
+
     def __init__(self, data: dict):
         self.data = data
         self.version = 1
         self.convert()
         self.__caption_manager = CaptionManager(config.socketio_server, config.socketio_port)
         self.__caption_manager.connect()
+        self.__background_music_manager = (
+            BackgroundMusicManager(config.live_background_music_map, volume=config.live_background_music_volume))
+
+    def play_background_music(self, music):
+        self.__background_music_manager.play_music(music)
 
     def send_caption(self, msg):
         self.__caption_manager.send(msg)

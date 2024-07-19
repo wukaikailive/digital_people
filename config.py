@@ -39,6 +39,14 @@ barrage_trim_start_chr = "#"
 """
 live_script_file_path = "D:/workspace/DigitalPeople/DigitalPeople/live/book/live-script-book.yaml"
 
+live_background_music_map = {
+    "[充满魔法的背景音乐]": "D:/LLM/digtal-people-assets/music/[充满魔法的背景音乐].mp3",
+    "[充满魔幻色彩的音乐作背景]": "D:/LLM/digtal-people-assets/music/[充满魔幻色彩的音乐作背景].mp3",
+    "[充满未来感的电子音乐作背景]": "D:/LLM/digtal-people-assets/music/[充满未来感的电子音乐作背景].mp3",
+    "[启发思考的背景音乐]": "D:/LLM/digtal-people-assets/music/[启发思考的背景音乐].mp3",
+    "[轻快的科技感音乐作背景]": "D:/LLM/digtal-people-assets/music/[轻快的科技感音乐作背景].mp3"
+}
+live_background_music_volume = 1
 
 
 """
