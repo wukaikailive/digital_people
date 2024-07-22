@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  paddle_speech:
+    build:
+      context: ./paddle_speech/ubuntu18-cpu
+      dockerfile: Dockerfile
+    container_name: paddle_speech
+    ports:
+      - "8090:8090"
+    volumes:
+      - C:/Users/wukai/.paddlespeech:/root/.paddlespeech
+      - C:/Users/wukai/.paddlenlp:/root/.paddlenlp
+      - C:/Users/wukai/.paddleaudio:/root/.paddleaudio

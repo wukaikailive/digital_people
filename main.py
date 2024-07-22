@@ -1,14 +1,20 @@
-from langchain.callbacks.manager import CallbackManager
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain_community.llms.ollama import Ollama
+if __name__ == '__main__':
+    """
+    参考：https://github.com/rsocket/rsocket-py
+    > First Run
+    pip3 install rsocket
+    pip3 install aiohttp
 
-llm = Ollama(base_url="http://localhost:11434", model="llama3:latest", )
+    python websocket.py -t taskId1 -t taskId2
+    """
+    logging.basicConfig(level=logging.INFO)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--uri', default=config.barrage_server_url, type=str, help="WebSocket Server Uri")
+    parser.add_argument('-t', action='append', required=True, help="taskIds")
+    args = parser.parse_args()
 
-
-def get_completion_ollama(prompt):
-    return llm.invoke(prompt)
-
-
-prompt = '微软是什么，使用中文回答'
-res = get_completion_ollama(prompt=prompt)
-print(res)
+    uri = args.uri
+    subscribe_payload_json["data"]["taskIds"] = args.t
+    print(subscribe_payload_json)
+    audio2face.init()
+    asyncio.run(main(uri))
