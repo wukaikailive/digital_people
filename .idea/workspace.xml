@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:增加背景音乐播放功能">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/paddle_speech/ubuntu16-gpu/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/paddle_speech/ubuntu16-gpu/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/paddle_speech/ubuntu18-cpu/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/paddle_speech/ubuntu18-cpu/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/paddle_speech/ubuntu18-cpu/nltk_data.tar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/启动audio2face.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/启动语音合成服务.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/start.bat" afterDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:将各服务启动命令分离开&#10;body:paddlespeech构建的docker镜像有坑，主要表现在服务器会去执行保存文件操作，而docker环境和windows目录路径不一致，导致执行出错">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/book/live-script-book.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/live/book/live-script-book.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/socketio_sercer.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/socketio_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/启动环境.bat" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/启动socketio服务.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +272,7 @@
       <workItem from="1721403635225" duration="3910000" />
       <workItem from="1721445386278" duration="11255000" />
       <workItem from="1721565250432" duration="5800000" />
-      <workItem from="1721622323550" duration="13358000" />
+      <workItem from="1721622323550" duration="14005000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -399,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721407219976</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat:将各服务启动命令分离开&#10;body:paddlespeech构建的docker镜像有坑，主要表现在服务器会去执行保存文件操作，而docker环境和windows目录路径不一致，导致执行出错">
+      <option name="closed" value="true" />
+      <created>1721637200060</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1721637200060</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +426,8 @@
     <MESSAGE value="feat:增加等待任务执行功能" />
     <MESSAGE value="feat:增加字幕执行功能" />
     <MESSAGE value="feat:增加背景音乐播放功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:增加背景音乐播放功能" />
+    <MESSAGE value="feat:将各服务启动命令分离开&#10;body:paddlespeech构建的docker镜像有坑，主要表现在服务器会去执行保存文件操作，而docker环境和windows目录路径不一致，导致执行出错" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:将各服务启动命令分离开&#10;body:paddlespeech构建的docker镜像有坑，主要表现在服务器会去执行保存文件操作，而docker环境和windows目录路径不一致，导致执行出错" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
