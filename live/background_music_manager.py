@@ -1,6 +1,8 @@
+import logging
 import os
 
 import pygame
+logger = logging.getLogger(__name__)
 
 
 class BackgroundMusicManager:
@@ -24,7 +26,12 @@ class BackgroundMusicManager:
         :param music:
         :return:
         """
-        music_path = self.music_map.get(music)
+        try:
+            music_path = self.music_map.get(music)
+        except Exception as e:
+            logger.info(f"背景乐的值设置不正确：{music}")
+            logger.exception(e)
+            return
         if music_path is None:
             music_path = music
         if os.path.isfile(music_path):

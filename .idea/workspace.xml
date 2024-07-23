@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:将各服务启动命令分离开&#10;body:paddlespeech构建的docker镜像有坑，主要表现在服务器会去执行保存文件操作，而docker环境和windows目录路径不一致，导致执行出错">
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="refactor:修复背景乐的值填写问题导致线程退出，重新回到了开始的问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live/background_music_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/background_music_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live/book/live-script-book.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/live/book/live-script-book.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -272,7 +274,7 @@
       <workItem from="1721403635225" duration="3910000" />
       <workItem from="1721445386278" duration="11255000" />
       <workItem from="1721565250432" duration="5800000" />
-      <workItem from="1721622323550" duration="14005000" />
+      <workItem from="1721622323550" duration="24590000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -394,7 +396,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721637200060</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactor:修改依赖">
+      <option name="closed" value="true" />
+      <created>1721637814368</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1721637814368</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor:修复背景乐的值填写问题导致线程退出，重新回到了开始的问题">
+      <option name="closed" value="true" />
+      <created>1721701742774</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1721701742774</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +445,9 @@
     <MESSAGE value="feat:增加字幕执行功能" />
     <MESSAGE value="feat:增加背景音乐播放功能" />
     <MESSAGE value="feat:将各服务启动命令分离开&#10;body:paddlespeech构建的docker镜像有坑，主要表现在服务器会去执行保存文件操作，而docker环境和windows目录路径不一致，导致执行出错" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:将各服务启动命令分离开&#10;body:paddlespeech构建的docker镜像有坑，主要表现在服务器会去执行保存文件操作，而docker环境和windows目录路径不一致，导致执行出错" />
+    <MESSAGE value="refactor:修改依赖" />
+    <MESSAGE value="refactor:修复背景乐的值填写问题导致线程退出，重新回到了开始的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:修复背景乐的值填写问题导致线程退出，重新回到了开始的问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -436,11 +456,6 @@
           <url>file://$PROJECT_DIR$/../../../python/Python310/Lib/site-packages/paddle/base/dygraph/tensor_patch_methods.py</url>
           <line>892</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/live/live_script_parser.py</url>
-          <line>115</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -466,7 +481,7 @@
     <SUITE FILE_PATH="coverage/DigitalPeople$paddle_speech_tesst4.coverage" NAME="paddle_speech_tesst4 覆盖结果" MODIFIED="1720503376840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
     <SUITE FILE_PATH="coverage/DigitalPeople$util.coverage" NAME="util 覆盖结果" MODIFIED="1720076983761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/paddlespeech/server" />
     <SUITE FILE_PATH="coverage/DigitalPeople$audio_util.coverage" NAME="audio_util 覆盖结果" MODIFIED="1721106998800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/live" />
-    <SUITE FILE_PATH="coverage/DigitalPeople$.coverage" NAME=" 覆盖结果" MODIFIED="1721637076968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$.coverage" NAME=" 覆盖结果" MODIFIED="1721702058937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/DigitalPeople$chat_ollama_chroma.coverage" NAME="chat-ollama-chroma 覆盖结果" MODIFIED="1719320960411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech_test3.coverage" NAME="paddlespeech_test3 覆盖结果" MODIFIED="1720086154720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
     <SUITE FILE_PATH="coverage/DigitalPeople$live_script_parser.coverage" NAME="live_script_parser 覆盖结果" MODIFIED="1721031444610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/live" />
