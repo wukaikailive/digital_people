@@ -16,6 +16,7 @@ import live.audio_util as audio_util
 from barrage import barrage_server
 from live.background_music_manager import BackgroundMusicManager
 from live.caption_manager import CaptionManager
+import runtime_status
 
 logger = logging.getLogger(__name__)
 
@@ -144,8 +145,9 @@ class AudioJob(Job):
         audio_util.create_audio_cache(self.value, cache_path)
         self.audio_duration = audio_util.get_audio_duration(file_path)
         logger.info(f"正在播放：{self.value}, 时长：{self.audio_duration}")
+        audio2face.set_root_path(cache_path)
         audio2face.set_track(h)
-        sleep(0.5)
+        # sleep(0.5)
         audio2face.play()
         sleep(self.audio_duration)
         logger.info(f"播放结束：{self.value}")
