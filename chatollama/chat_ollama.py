@@ -1,3 +1,4 @@
+import logging
 import re
 
 from langchain_community.chat_models import ChatOllama
@@ -8,13 +9,16 @@ import config
 import chatollama.chat_ollama_api as chat_ollama_api
 import time
 
+logger = logging.getLogger(__name__)
+
+
 def call_ollama(inputs):
     start = time.perf_counter()
     if config.use_chat_ollama:
         result = chat_ollama_api.chat(inputs)
         result = filter_chat_ollama(result)
         end = time.perf_counter()
-        print('LLM处理时间为：{}秒'.format(end - start))
+        logger.info('LLM处理时间为：{}秒'.format(end - start))
         return result
     else:
         inputs = inputs + ", 使用中文回答，并且内容尽量精简，最好不要超过20个字。"
@@ -23,7 +27,7 @@ def call_ollama(inputs):
         chain = prompt | llm | StrOutputParser()
         result = chain.invoke({})
         end = time.perf_counter()
-        print('LLM处理时间为：{}秒'.format(end - start))
+        logger.info('LLM处理时间为：{}秒'.format(end - start))
         return result
 
 

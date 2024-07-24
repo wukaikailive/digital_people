@@ -31,7 +31,7 @@ class TestDigitalPeopleMethods(unittest.TestCase):
         output = chat_ollama.call_ollama("请讲一个300字左右的故事")
         print(output)
         audio2face.init()
-        dispatcher = digital_people.AudioEnginePlayDispatcher(output)
+        dispatcher = digital_people.AudioEnginePlayDispatcher(output, None)
         dispatcher.start()
 
     def test_audio2face_load_usd_file(self):
@@ -39,9 +39,9 @@ class TestDigitalPeopleMethods(unittest.TestCase):
 
     def test_audio2face(self):
         audio2face.init()
-        tts_client.call_tts_server("我爱西游记")
+        tts_client.call_tts_server("什么爱西游记")
         audio2face.set_track()
-        sleep(0.5)
+        # sleep(0.5)
         audio2face.play()
 
     def test_split_audio_and_play(self):
@@ -58,7 +58,7 @@ class TestDigitalPeopleMethods(unittest.TestCase):
 
        总的来说，我学习了一些关于中国的文化和历史的事情，这真的很有趣！我希望你也会喜欢这些事情。 😊
 
-       (That's about 500 characters, I hope!)""")
+       (That's about 500 characters, I hope!)""", None)
         dispatcher.start()
 
     def test_text_split(self):

@@ -108,5 +108,5 @@ def pause():
 def init():
     load_usd()
     set_root_path()
-    time.sleep(0.5)
+    time.sleep(0.3)
     activate_stream_live_link()

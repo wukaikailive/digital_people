@@ -9,8 +9,8 @@ jobs:
     name: 互动
     caption: "《追风筝的人》卡勒德·胡赛尼 - 互动提问，使用 #+问题，如 #你好 "
     type: interaction
-    duration: 60
-    idle_timing: 20
+    duration: 1800
+    idle_timing: 120
     idle_audios:
       1:
         type: audio

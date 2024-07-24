@@ -3,28 +3,12 @@
 """
 import time
 
-import socketio
+from live.socketio_client import SocketioClient
 
 
-class CaptionManager:
-    client: socketio.Client
-    server: str
-    port: int
-
-    def __init__(self, server, port):
-        self.server = server
-        self.port = port
-
-    def connect(self):
-        self.client = socketio.Client()
-        self.client.connect(f"{self.server}:{self.port}")
-
-    def disconnect(self):
-        if self.client.connected:
-            self.client.disconnect()
-
+class CaptionManager(SocketioClient):
     def send(self, msg):
-        self.client.emit("cmd", {"name": "caption", "text": msg})
+        self.send_data("cmd", {"name": "caption", "text": msg})
 
 
 if __name__ == "__main__":

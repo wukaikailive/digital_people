@@ -9,10 +9,12 @@ import config
 import tts_client
 import barrage.barrage_server as barrage_server
 import tts.recursively_split_by_character as recursively_split_by_character
-from multiprocessing import Pool
 import pydash
 from threading import Timer
 import traceback
+
+from live import live_script_util
+from live.socketio_client import SocketioClient
 
 
 class PlayingPOJO(object):
@@ -34,14 +36,16 @@ class PlayingPOJO(object):
 class AudioEnginePlayDispatcher:
     texts = []
     status = []
-    pool: Pool = None
+    # pool: Pool = None
     id: str
+    socketio_client: SocketioClient = None
 
-    def __init__(self, text):
+    def __init__(self, text, socketio_client):
         self.status = []
         self.text = text
+        self.socketio_client = socketio_client
         self.texts = recursively_split_by_character.split_text(text)
-        self.pool = Pool(len(self.texts) + 1)
+        # self.pool = Pool(len(self.texts) + 1)
         self.id = self.general_id()
         self.root_path = f"{config.speech_wav_save_path}/{self.id}"
         self.create_root_path()
@@ -72,7 +76,14 @@ class AudioEnginePlayDispatcher:
             runtime_status.isAudioPlaying = False
             runtime_status.isSpeaking = False
             runtime_status.isIdle = True
+            self.re_start_idle_timer()
             print("处理完成")
+
+    def re_start_idle_timer(self):
+        if self.socketio_client is None:
+            live_script_util.re_start_idle_timer()
+        else:
+            self.socketio_client.send_data("re_start_idle_timer", {})
 
     def tts_threads(self):
         for index, text in enumerate(self.texts):
@@ -94,7 +105,7 @@ class AudioEnginePlayDispatcher:
         audio2face.set_root_path(self.root_path)
         file_name = self.get_file_name(index)
         audio2face.set_track(file_name)
-        sleep(1)
+        # sleep(1)
         audio2face.play()
 
     def play(self):

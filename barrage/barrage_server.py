@@ -57,6 +57,7 @@ from rsocket.transports.aiohttp_websocket import TransportAioHttpClient
 import audio2face
 import tts_client
 import config
+from live.socketio_client import SocketioClient
 
 subscribe_payload_json = {
     "data": {
@@ -66,9 +67,11 @@ subscribe_payload_json = {
 }
 
 
-class ChannelSubscriber(Subscriber):
+class ChannelSubscriber(Subscriber, SocketioClient):
     def __init__(self, wait_for_responder_complete: Event) -> None:
-        super().__init__()
+        Subscription.__init__(self)
+        SocketioClient.__init__(self, config.socketio_server, config.socketio_port)
+        self.connect()
         self.subscription = None
         self._wait_for_responder_complete = wait_for_responder_complete
 
@@ -92,7 +95,7 @@ class ChannelSubscriber(Subscriber):
             # 调用后续处理流程
             print('接收到用户消息：' + content)
             if content.startswith(config.barrage_trim_start_chr):
-                tts_client.start(content.strip(config.barrage_trim_start_chr))
+                tts_client.start(content.strip(config.barrage_trim_start_chr), self)
         elif msg_type == "GIFT":
             msg = msg_dto['msg']
             logging.info(

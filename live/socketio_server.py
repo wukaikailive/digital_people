@@ -13,6 +13,14 @@ def cmd(sid, msg):
     sio.emit(msg['name'], msg['text'])
 
 @sio.event
+def cancel_idle_timer(sid, msg):
+    sio.emit('cancel_idle_timer')
+
+@sio.event
+def re_start_idle_timer(sid, msg):
+    sio.emit('re_start_idle_timer')
+
+@sio.event
 def disconnect(sid):
     print('disconnect', sid)
 

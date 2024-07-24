@@ -7,6 +7,8 @@ import digital_people
 from chatollama import chat_ollama
 import config
 import runtime_status
+from live import live_script_util
+from live.socketio_client import SocketioClient
 
 
 def call_text_server(inputs):
@@ -49,22 +51,18 @@ def call_tts_server(inputs, path=config.speech_wav_save_path, file_name=config.s
     return response_dict['result']['duration']
 
 
-def init_audio2face():
-    audio2face.load_usd()
-    audio2face.set_root_path()
-    sleep(1)
-    audio2face.activate_stream_live_link()
-
-
-def start(inputs):
+def start(inputs, socketio_client: SocketioClient):
     if ((config.communication_env == config.communication_env_live and config.open_live_immediate_interrupt)
             or runtime_status.isIdle):
-        threading.Thread(target=start_thread, args=(inputs,)).start()
+        # 当存在交互请求时，取消全局的空闲计时器
+        socketio_client.send_data("cancel_idle_timer", {})
+        # live_script_util.cancel_idle_timer()
+        threading.Thread(target=start_thread, args=(inputs, socketio_client)).start()
     else:
         print("跳过响应：" + inputs)
 
 
-def start_thread(inputs):
+def start_thread(inputs, socketio_client: SocketioClient):
     # 如果是直播模式，且开启了打断，那么直接正常响应，或者数字人空闲
     runtime_status.isIdle = False
     # runtime_status.isAnswerCreating = True
@@ -80,7 +78,7 @@ def start_thread(inputs):
         gpt_output = call_text_server(gpt_output)
     if config.use_audio_split:
         audio2face.init()
-        dispatcher = digital_people.AudioEnginePlayDispatcher(gpt_output)
+        dispatcher = digital_people.AudioEnginePlayDispatcher(gpt_output,socketio_client)
         dispatcher.start()
     else:
         call_tts_server(gpt_output)
@@ -90,3 +88,5 @@ def start_thread(inputs):
         # runtime_status.isAudioPlaying = True
         audio2face.play()
         # TODO 设置空闲状态
+        # 开始空闲计时，需要调用当前交互任务的开始计时方法
+        # live_script_util.re_start_idle_timer()

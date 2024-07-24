@@ -1,5 +1,6 @@
 import logging
 import random
+import sys
 import time
 from threading import Timer, Thread
 from time import sleep
@@ -9,14 +10,14 @@ from multiprocessing import Process
 import yaml
 
 import audio2face
-import barrage.barrage_server
 import config
-import live.live_script_parser
 import live.audio_util as audio_util
 from barrage import barrage_server
+from live import live_script_util
 from live.background_music_manager import BackgroundMusicManager
 from live.caption_manager import CaptionManager
 import runtime_status
+from live.socketio_client import SocketioClient
 
 logger = logging.getLogger(__name__)
 
@@ -94,6 +95,10 @@ class Job:
         pass
 
     def execute(self):
+        runtime_status.current_job = self
+        self.inner_execute()
+
+    def inner_execute(self):
         self.send_caption()
 
     def send_caption(self):
@@ -121,12 +126,10 @@ class GroupJob(Job):
 
     def execute(self):
         super().execute()
-        #  todo 播放背景音乐
+
+    def inner_execute(self):
         for job in self.jobs:
             job.execute()
-
-    def get_audio_audio_name(self, value):
-        return audio_util.str_hash(value) + ".wav"
 
 
 class AudioJob(Job):
@@ -138,6 +141,8 @@ class AudioJob(Job):
 
     def execute(self):
         super().execute()
+
+    def inner_execute(self):
         self.__env = self.live_script.env
         h = audio_util.str_hash(self.value) + '.wav'
         cache_path = self.get_audio_cache_path()
@@ -174,7 +179,7 @@ class InteractionJob(Job):
     idle_timing: int = 120
 
     __barrage_thread: Process = None
-    __idle_timer: Timer = None
+    # __idle_timer: Timer = None
     __idle_audio_thread: Thread = None
 
     def convert(self, key: str, data: dict):
@@ -199,6 +204,8 @@ class InteractionJob(Job):
 
     def execute(self):
         super().execute()
+
+    def inner_execute(self):
         duration = self.duration
         logger.info("开始互动")
         # 启动弹幕服务
@@ -206,13 +213,8 @@ class InteractionJob(Job):
         self.start_timing()
         self.idle_timing_timer()
         self.wait_barrage_finished()
+        live_script_util.cancel_idle_timer()
         logger.info("结束互动")
-        self.on_destroy()
-
-    def on_destroy(self):
-        if self.__idle_timer.is_alive():
-            self.__idle_timer.cancel()
-        # todo 停止播放音频
 
     def on_barrage_listing(self):
         logger.info("启动弹幕服务")
@@ -232,9 +234,8 @@ class InteractionJob(Job):
         self.off_barrage_listing()
 
     def idle_timing_timer(self):
-        logger.info(f"开始空闲计时，倒计时{self.idle_timing}秒")
-        self.__idle_timer = Timer(self.idle_timing, self.idle_timing_end)
-        self.__idle_timer.start()
+        # logger.info(f"开始空闲计时，倒计时{self.idle_timing}秒")
+        live_script_util.start_idle_timer(self.idle_timing, self.idle_timing_end)
 
     def idle_timing_end(self):
         logger.info("空闲计时结束，开始播放预定义话术")
@@ -254,7 +255,7 @@ class InteractionJob(Job):
             # todo 顺序播放未支持
             index = random.randint(0, len(self.idle_audios) - 1)
             audio = self.idle_audios[index]
-            audio.execute()
+            audio.inner_execute()
 
     def wait_barrage_finished(self):
         if self.__barrage_thread.is_alive():
@@ -265,14 +266,14 @@ class InteractionJob(Job):
 
     def play_idle_start_audio(self):
         if self.idle_start_audio is not None:
-            self.idle_start_audio.execute()
+            self.idle_start_audio.inner_execute()
 
     def create_idle_end_audio(self, data):
         self.idle_end_audio = AudioJob("idle_end_audio", data, self.live_script)
 
     def play_idle_end_audio(self):
         if self.idle_end_audio is not None:
-            self.idle_end_audio.execute()
+            self.idle_end_audio.inner_execute()
 
 
 class IntervalJob(Job):
@@ -288,6 +289,8 @@ class IntervalJob(Job):
 
     def execute(self):
         super().execute()
+
+    def inner_execute(self):
         duration = self.value
         logger.info(f"开始等待，{duration}秒")
         time.sleep(duration)
@@ -303,12 +306,18 @@ class LiveScriptV1:
 
     __background_music_manager: BackgroundMusicManager
 
+    __socketio_client: SocketioClient
+
     def __init__(self, data: dict):
         self.data = data
         self.version = 1
         self.convert()
         self.__caption_manager = CaptionManager(config.socketio_server, config.socketio_port)
         self.__caption_manager.connect()
+        self.__socketio_client = SocketioClient(config.socketio_server, config.socketio_port)
+        self.__socketio_client.connect()
+        self.__socketio_client.on("cancel_idle_timer", live_script_util.cancel_idle_timer)
+        self.__socketio_client.on("re_start_idle_timer", live_script_util.re_start_idle_timer)
         self.__background_music_manager = (
             BackgroundMusicManager(config.live_background_music_map, volume=config.live_background_music_volume))
 
@@ -341,7 +350,7 @@ class LiveScriptV1:
             job_type: str = value['type']
             if job_type is None:
                 raise Exception(f"任务 {key} 中缺失 type 字段")
-            module = getattr(live, "live_script_parser")
+            module = sys.modules[__name__]
             name = f"{job_type.capitalize()}Job"
             class_name = getattr(module, name)
             print(type(class_name))
