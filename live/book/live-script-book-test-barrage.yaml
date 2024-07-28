@@ -19,6 +19,7 @@ jobs:
         type: audio
         name: '有弹幕时的过度内容'
         value: '感谢小伙伴的弹幕讨论，为保证直播内容的完整性，我们在后面的部分设置有讨论环节，现在先允许我继续介绍哦'
+    background_image: "C:/Users/wukai/Downloads/1.png"
     jobs:
       1:
         type: group
@@ -30,6 +31,7 @@ jobs:
             name: 开始
             type: audio
             value: 亲爱的读者朋友们，大家好！今天，我为大家带来一本深触动人心弦、来自阿富汗的作家卡勒德·胡赛尼的作品——《追风筝的人》。这不仅仅是一本书，它更像是一段跨越时空的心灵之旅。
+            background_image: "C:/Users/wukai/Downloads/2.png"
           结束:
             name: 结束
             type: audio
@@ -44,6 +46,7 @@ jobs:
             name: 开始
             type: audio
             value: 今天我们要介绍的第二本书是来自日本作家东野圭吾的《解忧杂货店》。这是一部温暖人心的作品，它以一家看似普通的杂货店为线索，织出了一个个充满魔力的故事。
+            background_image: "C:/Users/wukai/Downloads/3.png"
           书籍介绍:
             name: 书籍介绍
             type: audio
@@ -51,4 +54,5 @@ jobs:
   second_part:
     name: 第二部分：特别话题讨论
     type: audio
+    background_image: "C:/Users/wukai/Downloads/4.png"
     value: 阅读真的能够改变我们的生活，它能开阔我们的视野，提高我们的同理心。我个人非常喜欢在睡前读上几页，这有助于放松心情。你们有没有什么好的阅读习惯或心得想要跟大家分享？同时，我在这里也有几个阅读小贴士，比如制定阅读计划、选择适合的阅读环境等等。

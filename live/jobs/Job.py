@@ -14,6 +14,7 @@ class Job:
     value: str
     caption: str = None
     background_music: str = None
+    background_image: str = None
     on_barrage_received = None
 
     live_script = None
@@ -43,6 +44,7 @@ class Job:
         self.value = data.get("value")
         self.caption = data.get("caption")
         self.background_music = data.get("background_music")
+        self.background_image = data.get("background_image")
         on_barrage_received_data = data.get("on_barrage_received")
         if on_barrage_received_data is not None:
             from live.OnBarrageReceived import OnBarrageReceived
@@ -54,6 +56,7 @@ class Job:
 
     def before_execute(self):
         runtime_status.current_job = self
+        self.send_caption()
 
     def execute(self):
         self.before_execute()
@@ -70,13 +73,15 @@ class Job:
                 self.live_script.barrage_manager_clear()
 
     def inner_execute(self):
-        self.send_caption()
+        pass
 
     def send_caption(self):
         if self.caption is not None and self.live_script is not None:
             self.live_script.send_caption(self.caption)
         if self.background_music is not None and self.live_script is not None:
             self.live_script.play_background_music(self.background_music)
+        if self.background_image is not None and self.live_script is not None:
+            self.live_script.send_background_image(self.background_image)
 
     def get_barrage_action_need_execute_job(self, index, job):
         if job is not None:

@@ -60,6 +60,9 @@ class LiveScriptV1:
     def send_caption(self, msg):
         self.__caption_manager.send(msg)
 
+    def send_background_image(self, background_image):
+        self.__caption_manager.send_data("cmd", {"name": "background_image", "text": background_image})
+
     def convert(self):
         self.convert_version()
         self.convert_env()

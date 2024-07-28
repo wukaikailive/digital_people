@@ -46,7 +46,8 @@ live_background_music_map = {
     "[启发思考的背景音乐]": "D:/LLM/digtal-people-assets/music/[启发思考的背景音乐].mp3",
     "[轻快的科技感音乐作背景]": "D:/LLM/digtal-people-assets/music/[轻快的科技感音乐作背景].mp3"
 }
-live_background_music_volume = 1
+# 背景乐的音量大小，范围0-1
+live_background_music_volume = 0.6
 
 
 """
