@@ -34,6 +34,12 @@ class TestUtilMethods(unittest.TestCase):
         live_script_executor = LiveScriptExecutor(live_script_v1)
         live_script_executor.execute()
 
+    def test_bg_image_job(self):
+        parser = LiveScriptParser("D:/workspace/DigitalPeople/DigitalPeople/live/book/live-script-book-test-bg-image.yaml")
+        live_script_v1 = LiveScriptV1(parser.data)
+        live_script_executor = LiveScriptExecutor(live_script_v1)
+        live_script_executor.execute()
+
 
 if __name__ == '__main__':
     unittest.main()

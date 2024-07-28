@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:增加普通任务在执行期间遇到弹幕交互的处理逻辑，目前默认为播放一段过度语音。">
-      <change afterPath="$PROJECT_DIR$/live/BackgroundImageManager.py" afterDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:增加背景图片设置功能">
+      <change afterPath="$PROJECT_DIR$/live/book/live-script-book-test-bg-image.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/LiveScriptV1.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/LiveScriptV1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live/BackgroundImageManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/BackgroundImageManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/live/book/live-script-book-test-barrage.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/live/book/live-script-book-test-barrage.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/jobs/Job.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/jobs/Job.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_live_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_live_script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,8 @@
     "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_chat_ollama_chat_api 的 Python 测试.executor": "Run",
     "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_split_audio_and_play 的 Python 测试.executor": "Run",
     "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_text_split 的 Python 测试.executor": "Debug",
-    "Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试.executor": "Debug",
+    "Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试.executor": "Run",
+    "Python 测试.test_live_script.TestUtilMethods.test_bg_image_job 的 Python 测试.executor": "Run",
     "Python 测试.test_live_script.TestUtilMethods.test_executor 的 Python 测试.executor": "Debug",
     "Python 测试.test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试.executor": "Debug",
     "Python 测试.test_util.TestUtilMethods.test_process 的 Python 测试.executor": "Debug",
@@ -173,7 +173,7 @@
       <visibility group="运行配置" flag="true" />
     </myKeys>
   </component>
-  <component name="RunManager" selected="Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试">
+  <component name="RunManager" selected="Python 测试.test_live_script.TestUtilMethods.test_bg_image_job 的 Python 测试">
     <configuration name="start" type="BatchConfigurationType" factoryName="Batch" temporary="true">
       <module name="DigitalPeople" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -222,6 +222,22 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="test_live_script.TestUtilMethods.test_bg_image_job 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="DigitalPeople" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_live_script.TestUtilMethods.test_bg_image_job&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_live_script.TestUtilMethods.test_executor 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DigitalPeople" />
       <option name="ENV_FILES" value="" />
@@ -238,36 +254,20 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="DigitalPeople" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_live_script.TestUtilMethods.test_interaction_job&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Batch.start" />
       <item itemvalue="Python.BackgroundImageManager" />
+      <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_bg_image_job 的 Python 测试" />
       <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试" />
       <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_executor 的 Python 测试" />
-      <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试" />
+        <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_bg_image_job 的 Python 测试" />
         <item itemvalue="Python.BackgroundImageManager" />
-        <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_executor 的 Python 测试" />
-        <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试" />
+        <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试" />
         <item itemvalue="Batch.start" />
+        <item itemvalue="Python 测试.test_live_script.TestUtilMethods.test_executor 的 Python 测试" />
       </list>
     </recent_temporary>
   </component>
@@ -316,7 +316,8 @@
       <workItem from="1721622323550" duration="48939000" />
       <workItem from="1721746634238" duration="5947000" />
       <workItem from="1721793768668" duration="8810000" />
-      <workItem from="1722064237626" duration="24787000" />
+      <workItem from="1722064237626" duration="25312000" />
+      <workItem from="1722172087328" duration="5714000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -486,7 +487,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722162096328</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat:增加背景图片设置功能">
+      <option name="closed" value="true" />
+      <created>1722167342188</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722167342188</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +545,8 @@
     <MESSAGE value="fix:修复在回答问题后，空闲语音播放不正确的问题" />
     <MESSAGE value="fix:修复互动环节，空闲计时在有人交互时没有重置的问题" />
     <MESSAGE value="feat:增加普通任务在执行期间遇到弹幕交互的处理逻辑，目前默认为播放一段过度语音。" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:增加普通任务在执行期间遇到弹幕交互的处理逻辑，目前默认为播放一段过度语音。" />
+    <MESSAGE value="feat:增加背景图片设置功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:增加背景图片设置功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -571,10 +581,10 @@
     <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech_test1.coverage" NAME="paddlespeech_test1 覆盖结果" MODIFIED="1719467563153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
     <SUITE FILE_PATH="coverage/DigitalPeople$Doctests__files__.coverage" NAME="Doctests (files 内) 覆盖结果" MODIFIED="1720061374647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../LLM/paddlespeech/PaddleSpeech/demos/speech_web/speech_server/.venv/Lib/site-packages/librosa/util" />
     <SUITE FILE_PATH="coverage/DigitalPeople$paddle_speech_tesst4.coverage" NAME="paddle_speech_tesst4 覆盖结果" MODIFIED="1720503376840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
-    <SUITE FILE_PATH="coverage/DigitalPeople$BackgroundImageManager.coverage" NAME="BackgroundImageManager 覆盖结果" MODIFIED="1722166549203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/live" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$BackgroundImageManager.coverage" NAME="BackgroundImageManager 覆盖结果" MODIFIED="1722178227760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/live" />
     <SUITE FILE_PATH="coverage/DigitalPeople$util.coverage" NAME="util 覆盖结果" MODIFIED="1720076983761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.conda/envs/paddle_speech/Lib/site-packages/paddlespeech/server" />
     <SUITE FILE_PATH="coverage/DigitalPeople$audio_util.coverage" NAME="audio_util 覆盖结果" MODIFIED="1721106998800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/live" />
-    <SUITE FILE_PATH="coverage/DigitalPeople$.coverage" NAME=" 覆盖结果" MODIFIED="1722167116890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/DigitalPeople$.coverage" NAME=" 覆盖结果" MODIFIED="1722178578565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/DigitalPeople$chat_ollama_chroma.coverage" NAME="chat-ollama-chroma 覆盖结果" MODIFIED="1719320960411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DigitalPeople$paddlespeech_test3.coverage" NAME="paddlespeech_test3 覆盖结果" MODIFIED="1720086154720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tts" />
     <SUITE FILE_PATH="coverage/DigitalPeople$live_script_parser.coverage" NAME="live_script_parser 覆盖结果" MODIFIED="1721031444610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/live" />

@@ -15,7 +15,8 @@ if __name__ == "__main__":
     manager = BackgroundImageManager("http://127.0.0.1", 8082)
     manager.connect()
     time.sleep(1)
-    manager.send("C:/Users/wukai/Downloads/画板 1.png")
+    manager.send("C:/Users/wukai/Downloads/1-图书推荐-5.png")
     time.sleep(1)
     manager.disconnect()
     print("disconnected")
+

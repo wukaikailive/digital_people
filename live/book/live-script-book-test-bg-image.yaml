@@ -1,0 +1,49 @@
+version: 1
+env:
+  loop: true
+  loop_times: 0
+  log: true
+  name: "book"
+  # 开启弹幕监听，开启此功能，后续才可以使用on_barrage_received字段
+  enable_barrage_monitoring: true
+jobs:
+  one_part:
+    type: group
+    name: 第一部分：畅销书推荐
+    background_image: "C:/Users/wukai/Downloads/1-图书推荐.png"
+    caption: '第一部分：畅销书推荐'
+    jobs:
+      interval:
+        name: 等待
+        type: interval
+        value: 5
+  one_part2:
+    type: group
+    name: 第2部分：11111
+    background_image: "C:/Users/wukai/Downloads/2-话题讨论.png"
+    caption: '第2部分：11111'
+    jobs:
+      interval:
+        name: 等待
+        type: interval
+        value: 5
+  one_part3:
+    type: group
+    name: 第一部分：畅销书推荐
+    background_image: "C:/Users/wukai/Downloads/3-互动问答.png"
+    caption: '第3部分：3333'
+    jobs:
+      interval:
+        name: 等待
+        type: interval
+        value: 5
+  one_part4:
+    type: group
+    name: 第一部分：畅销书推荐
+    background_image: "C:/Users/wukai/Downloads/直播透明背景.png"
+    caption: '结束'
+    jobs:
+      interval:
+        name: 等待
+        type: interval
+        value: 5
