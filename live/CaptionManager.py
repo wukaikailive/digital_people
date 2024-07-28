@@ -3,7 +3,7 @@
 """
 import time
 
-from live.socketio_client import SocketioClient
+from live.SocketioClient import SocketioClient
 
 
 class CaptionManager(SocketioClient):

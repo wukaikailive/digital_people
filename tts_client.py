@@ -8,7 +8,7 @@ from chatollama import chat_ollama
 import config
 import runtime_status
 from live import live_script_util
-from live.socketio_client import SocketioClient
+from live.SocketioClient import SocketioClient
 
 
 def call_text_server(inputs):
@@ -51,12 +51,14 @@ def call_tts_server(inputs, path=config.speech_wav_save_path, file_name=config.s
     return response_dict['result']['duration']
 
 
-def start(inputs, socketio_client: SocketioClient):
+def start(inputs, socketio_client: SocketioClient = None):
     if ((config.communication_env == config.communication_env_live and config.open_live_immediate_interrupt)
             or runtime_status.isIdle):
         # 当存在交互请求时，取消全局的空闲计时器
-        socketio_client.send_data("cancel_idle_timer", {})
-        # live_script_util.cancel_idle_timer()
+        if socketio_client is None:
+            live_script_util.cancel_idle_timer()
+        else:
+            socketio_client.send_data("cancel_idle_timer", {})
         threading.Thread(target=start_thread, args=(inputs, socketio_client)).start()
     else:
         print("跳过响应：" + inputs)

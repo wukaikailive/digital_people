@@ -57,7 +57,7 @@ from rsocket.transports.aiohttp_websocket import TransportAioHttpClient
 import audio2face
 import tts_client
 import config
-from live.socketio_client import SocketioClient
+from live.SocketioClient import SocketioClient
 
 subscribe_payload_json = {
     "data": {
@@ -94,8 +94,9 @@ class ChannelSubscriber(Subscriber, SocketioClient):
             content = msg['content']
             # 调用后续处理流程
             print('接收到用户消息：' + content)
-            if content.startswith(config.barrage_trim_start_chr):
-                tts_client.start(content.strip(config.barrage_trim_start_chr), self)
+            self.send_data("receive_user_barrage", msg)
+            # if content.startswith(config.barrage_trim_start_chr):
+            #     tts_client.start(content.strip(config.barrage_trim_start_chr), self)
         elif msg_type == "GIFT":
             msg = msg_dto['msg']
             logging.info(

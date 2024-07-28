@@ -72,9 +72,11 @@ chat_ollama_knowledgebase_id = 1  # 测试
 chat_ollama_use_knowledgebase = False
 #
 # chat_ollama_family = "llama"
-chat_ollama_family = "chatglm"
+# chat_ollama_family = "chatglm"
+chat_ollama_family = "llama"
 # chat_ollama_model = "llama:latest"
-chat_ollama_model = "glm4:9b"
+# chat_ollama_model = "glm4:9b"
+chat_ollama_model = "llama3.1:8b"
 
 """
 audio2face配置

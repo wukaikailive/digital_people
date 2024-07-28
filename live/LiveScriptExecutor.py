@@ -5,23 +5,16 @@ import time
 
 import audio2face
 import config
-import tts_client
 from live import audio_util
-from live.live_script_parser import Job, LiveScriptVisitor, AudioJob, LiveScriptV1, Env
 import logging
+
+from live.AudioJobVisitor import AudioJobVisitor
+from live.Env import Env
+from live.LiveScriptV1 import LiveScriptV1
+from live.jobs.AudioJob import AudioJob
 
 logger = logging.getLogger(__name__)
 logging.getLogger().setLevel(logging.DEBUG)
-
-
-class AudioJobVisitor(LiveScriptVisitor):
-    audio_jobs: list[AudioJob] = []
-
-    def __init__(self, data):
-        super().__init__(data)
-
-    def visit_audio_job(self, data):
-        self.audio_jobs.append(data)
 
 
 class LiveScriptExecutor:
@@ -42,6 +35,7 @@ class LiveScriptExecutor:
     def __init__(self, live_script):
         self.live_script = live_script
         self.env = self.live_script.env
+        # 连接到通讯服务
         self.audio_jobs = self.get_all_audio()
         self.init_audio()
         self.init_audio2face()
@@ -95,5 +89,3 @@ class LiveScriptExecutor:
         self.cache_path = config.speech_wav_save_path + "/" + self.env.name
         if not os.path.exists(self.cache_path):
             os.makedirs(self.cache_path)
-
-

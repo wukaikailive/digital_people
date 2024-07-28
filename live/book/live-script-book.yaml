@@ -4,6 +4,8 @@ env:
   loop_times: 0
   log: true
   name: "book"
+  # 开启弹幕监听，开启此功能，后续才可以使用on_barrage_received字段
+  enable_barrage_monitoring: true
 jobs:
   开场白:
     type: audio
@@ -14,6 +16,15 @@ jobs:
   one_part:
     type: group
     name: 第一部分：畅销书推荐
+    on_barrage_received:
+      action: 'play_audio'
+      opportunity: 'after_job_executed'
+      # 解析的任务深度，如果为-1，则所有任务都可能响应此动作，如果为0，代表当前任务（不解析任何子任务），设置为正整数，那么会解析第n层的子任务（如果存在），例如这里设置为1，意为在每本图书执行完毕时，检查是否有弹幕然后执行相应操作
+      deep: -1
+      play_audio:
+        type: audio
+        name: '有弹幕时的过度内容'
+        value: '感谢小伙伴的弹幕讨论，为保证直播内容的完整性，我们在后面的部分设置有讨论环节，现在先允许我继续介绍哦'
     jobs:
       1:
         type: group

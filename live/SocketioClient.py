@@ -26,3 +26,6 @@ class SocketioClient:
 
     def on(self, event, handler=None, namespace=None):
         self.client.on(event, handler, namespace)
+
+    def off(self, event, handler=None, namespace=None):
+        pass

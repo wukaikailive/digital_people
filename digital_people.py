@@ -14,7 +14,7 @@ from threading import Timer
 import traceback
 
 from live import live_script_util
-from live.socketio_client import SocketioClient
+from live.SocketioClient import SocketioClient
 
 
 class PlayingPOJO(object):
@@ -40,7 +40,7 @@ class AudioEnginePlayDispatcher:
     id: str
     socketio_client: SocketioClient = None
 
-    def __init__(self, text, socketio_client):
+    def __init__(self, text, socketio_client = None):
         self.status = []
         self.text = text
         self.socketio_client = socketio_client
