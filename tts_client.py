@@ -37,7 +37,7 @@ def call_tts_server(inputs, path=config.speech_wav_save_path, file_name=config.s
         input=inputs,
         server_ip=config.speech_server_url,
         port=config.speech_server_port,
-        spk_id=174,
+        spk_id=175,
         speed=1.0,
         volume=3.0,
         sample_rate=0,

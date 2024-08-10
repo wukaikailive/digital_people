@@ -39,7 +39,7 @@ class TestDigitalPeopleMethods(unittest.TestCase):
 
     def test_audio2face(self):
         audio2face.init()
-        tts_client.call_tts_server("什么爱西游记")
+        tts_client.call_tts_server("亲爱的朋友们，夏日炎炎，是否渴望一场与清凉的邂逅？来我们的水上乐园吧！在这里，您可以尽情享受阳光与海浪的拥抱。想象一下，在彩虹滑梯上尖叫着冲向水面，感受那一瞬间的心跳加速；或是在懒人河里随波逐流，让繁忙的心灵得到片刻的宁静。现在购票还有惊喜优惠哦！别让您的夏天只是平淡无奇的回忆，让我们一起在水上乐园创造难忘的夏日故事吧！期待您的光临！")
         audio2face.set_track()
         # sleep(0.5)
         audio2face.play()

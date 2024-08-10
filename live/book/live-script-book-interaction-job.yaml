@@ -1,7 +1,7 @@
 version: 1
 env:
   loop: true
-  loop_times: 1
+  loop_times: 0
   log: true
   name: "book"
 jobs:
@@ -9,8 +9,8 @@ jobs:
     name: 互动
     caption: "《追风筝的人》卡勒德·胡赛尼 - 互动提问，使用 #+问题，如 #你好 "
     type: interaction
-    duration: 1800
-    idle_timing: 120
+    duration: 60
+    idle_timing: 20
     idle_audios:
       1:
         type: audio

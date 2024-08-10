@@ -3,9 +3,11 @@ from multiprocessing import Process
 from threading import Thread, Timer
 
 import config
+import runtime_status
 import tts_client
 from barrage import barrage_server
 from live import live_script_util
+from live.SocketioClient import SocketioClient
 from live.jobs.Job import Job
 from live.jobs.AudioJob import AudioJob
 
@@ -35,6 +37,12 @@ class InteractionJob(Job):
     # __idle_timer: Timer = None
     __idle_audio_thread: Thread = None
 
+    __socketio_client: SocketioClient = None
+
+    def __init__(self, key, data, live_script, parent=None):
+        super().__init__(key, data, live_script, parent=None)
+        self.__socketio_client = SocketioClient(config.socketio_server, config.socketio_port)
+
     def convert(self, key: str, data: dict):
         super().convert(key, data)
         self.duration = data.get("duration", self.duration)
@@ -59,6 +67,7 @@ class InteractionJob(Job):
         super().execute()
 
     def inner_execute(self):
+        self.__socketio_client.connect()
         duration = self.duration
         logger.info("开始互动")
         # 启动弹幕服务
@@ -67,13 +76,17 @@ class InteractionJob(Job):
         self.idle_timing_timer()
         self.wait_barrage_finished()
         live_script_util.cancel_idle_timer()
+        self.__socketio_client.disconnect()
+        # 保证在任务结束后，全局空闲设置为True，避免下一次任务不响应用户输入
+        runtime_status.isIdle = True
         logger.info("结束互动")
 
     def on_barrage_listing(self):
         logger.info("启动弹幕服务")
         self.__barrage_thread = Process(target=barrage_server.start)
         self.__barrage_thread.start()
-        self.live_script.on_receive_barrage(self.on_receive_barrage)
+        self.__socketio_client.on("receive_user_barrage", self.on_receive_barrage)
+        # self.live_script.on_receive_barrage(self.on_receive_barrage)
 
     @staticmethod
     def on_receive_barrage(msg):

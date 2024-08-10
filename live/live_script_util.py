@@ -21,6 +21,7 @@ def re_start_idle_timer():
 
 
 def start_idle_timer(idle_timing, idle_timing_end):
+    cancel_idle_timer()
     logger.info(f"开始空闲计时，倒计时{idle_timing}秒")
     runtime_status.idle_timer = Timer(idle_timing, idle_timing_end)
     runtime_status.idle_timer.start()
