@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="feat:增加背景图片测试用例">
-      <change afterPath="$PROJECT_DIR$/exp/log/py_paddlespeech_server.DESKTOP-49KRPSM.wukai.2024-07-30_11-50-12_381227.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp/log/py_paddlespeech_server.DESKTOP-49KRPSM.wukai.2024-07-30_11-52-59_934433.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp/log/py_paddlespeech_server.DESKTOP-49KRPSM.wukai.2024-07-30_11-55-40_944367.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp/log/py_paddlespeech_server.DESKTOP-49KRPSM.wukai.2024-07-30_12-00-01_817434.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp/log/py_paddlespeech_server.DESKTOP-49KRPSM.wukai.2024-07-30_20-25-23_969570.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp/log/py_paddlespeech_server.DESKTOP-49KRPSM.wukai.2024-07-30_20-36-13_981203.log" afterDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/SocketioClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/SocketioClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/book/live-script-book-interaction-job.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/live/book/live-script-book-interaction-job.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/jobs/InteractionJob.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/jobs/InteractionJob.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/live_script_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/live/live_script_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/启动语音合成服务.bat" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/启动语音合成服务.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_digital_people.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_digital_people.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/tts_client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,74 +63,74 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Batch.start.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.启动socketio服务.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.启动环境.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.启动语音合成服务.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.部署ChatOllama.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_digital_people.TestDigitalPeopleMethods.test_audio2face.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_digital_people.TestDigitalPeopleMethods.test_chat_audio2face_with_split.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_live_script.TestUtilMethods.test_executor.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_live_script.TestUtilMethods.test_interaction_job.executor&quot;: &quot;Debug&quot;,
-    &quot;Python tests.test_live_script.TestUtilMethods.test_executor 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.Doctests (files 内).executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.Python tests for test_digital_people.TestDigitalPeopleMethods.test_audio2face.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.Python tests for test_live_script.TestUtilMethods.test_executor.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.Python tests for test_live_script.TestUtilMethods.test_interaction_job.executor&quot;: &quot;Debug&quot;,
-    &quot;Python 测试.Python tests for test_util.TestUtilMethods.test_str_hash.executor&quot;: &quot;Debug&quot;,
-    &quot;Python 测试.Python tests in test_live_script.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.digital_people.TestDigitalPeopleMethods.test_audio2face 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.digital_people.TestDigitalPeopleMethods.test_audio2face_load_usd_file 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.digital_people.TestDigitalPeopleMethods.test_chat 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.digital_people.TestDigitalPeopleMethods.test_text_split 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_digital_people.TestDigitalPeopleMethods.test_audio2face 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_digital_people.TestDigitalPeopleMethods.test_chat_audio2face 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_digital_people.TestDigitalPeopleMethods.test_chat_audio2face_with_split 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_digital_people.TestDigitalPeopleMethods.test_chat_ollama_chat_api 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_digital_people.TestDigitalPeopleMethods.test_split_audio_and_play 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_digital_people.TestDigitalPeopleMethods.test_text_split 的 Python 测试.executor&quot;: &quot;Debug&quot;,
-    &quot;Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_live_script.TestUtilMethods.test_bg_image_job 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python 测试.test_live_script.TestUtilMethods.test_executor 的 Python 测试.executor&quot;: &quot;Debug&quot;,
-    &quot;Python 测试.test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试.executor&quot;: &quot;Debug&quot;,
-    &quot;Python 测试.test_util.TestUtilMethods.test_process 的 Python 测试.executor&quot;: &quot;Debug&quot;,
-    &quot;Python 测试.test_util.TestUtilMethods.test_str_hash 的 Python 测试.executor&quot;: &quot;Run&quot;,
-    &quot;Python.BackgroundImageManager.executor&quot;: &quot;Run&quot;,
-    &quot;Python.audio_handler.executor&quot;: &quot;Run&quot;,
-    &quot;Python.audio_util.executor&quot;: &quot;Run&quot;,
-    &quot;Python.caption.executor&quot;: &quot;Run&quot;,
-    &quot;Python.chat-ollama-chroma.executor&quot;: &quot;Run&quot;,
-    &quot;Python.chat-ollama.executor&quot;: &quot;Run&quot;,
-    &quot;Python.danmu_server.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.digital_people.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.download.executor&quot;: &quot;Run&quot;,
-    &quot;Python.live_script_parser.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.paddle_speech_tesst4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.paddlespeech.executor&quot;: &quot;Run&quot;,
-    &quot;Python.paddlespeech_test1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.paddlespeech_test2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.paddlespeech_test3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.recursively_split_by_character.executor&quot;: &quot;Run&quot;,
-    &quot;Python.socketio_sercer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tensor_patch_methods.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.util.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/LLM/Wav2Lip-GFPGAN&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Batch.start.executor": "Run",
+    "Batch.启动socketio服务.executor": "Run",
+    "Batch.启动环境.executor": "Run",
+    "Batch.启动语音合成服务.executor": "Run",
+    "Batch.部署ChatOllama.executor": "Run",
+    "Python tests.Python tests for test_digital_people.TestDigitalPeopleMethods.test_audio2face.executor": "Run",
+    "Python tests.Python tests for test_digital_people.TestDigitalPeopleMethods.test_chat_audio2face_with_split.executor": "Run",
+    "Python tests.Python tests for test_live_script.TestUtilMethods.test_executor.executor": "Run",
+    "Python tests.Python tests for test_live_script.TestUtilMethods.test_interaction_job.executor": "Debug",
+    "Python tests.test_live_script.TestUtilMethods.test_executor 的 Python 测试.executor": "Run",
+    "Python tests.test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试.executor": "Run",
+    "Python 测试.Doctests (files 内).executor": "Run",
+    "Python 测试.Python tests for test_digital_people.TestDigitalPeopleMethods.test_audio2face.executor": "Run",
+    "Python 测试.Python tests for test_live_script.TestUtilMethods.test_executor.executor": "Run",
+    "Python 测试.Python tests for test_live_script.TestUtilMethods.test_interaction_job.executor": "Debug",
+    "Python 测试.Python tests for test_util.TestUtilMethods.test_str_hash.executor": "Debug",
+    "Python 测试.Python tests in test_live_script.py.executor": "Run",
+    "Python 测试.digital_people.TestDigitalPeopleMethods.test_audio2face 的 Python 测试.executor": "Run",
+    "Python 测试.digital_people.TestDigitalPeopleMethods.test_audio2face_load_usd_file 的 Python 测试.executor": "Run",
+    "Python 测试.digital_people.TestDigitalPeopleMethods.test_chat 的 Python 测试.executor": "Run",
+    "Python 测试.digital_people.TestDigitalPeopleMethods.test_text_split 的 Python 测试.executor": "Run",
+    "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_audio2face 的 Python 测试.executor": "Run",
+    "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_chat_audio2face 的 Python 测试.executor": "Run",
+    "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_chat_audio2face_with_split 的 Python 测试.executor": "Run",
+    "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_chat_ollama_chat_api 的 Python 测试.executor": "Run",
+    "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_split_audio_and_play 的 Python 测试.executor": "Run",
+    "Python 测试.test_digital_people.TestDigitalPeopleMethods.test_text_split 的 Python 测试.executor": "Debug",
+    "Python 测试.test_live_script.TestUtilMethods.test_barrage_job 的 Python 测试.executor": "Run",
+    "Python 测试.test_live_script.TestUtilMethods.test_bg_image_job 的 Python 测试.executor": "Run",
+    "Python 测试.test_live_script.TestUtilMethods.test_executor 的 Python 测试.executor": "Debug",
+    "Python 测试.test_live_script.TestUtilMethods.test_interaction_job 的 Python 测试.executor": "Debug",
+    "Python 测试.test_util.TestUtilMethods.test_process 的 Python 测试.executor": "Debug",
+    "Python 测试.test_util.TestUtilMethods.test_str_hash 的 Python 测试.executor": "Run",
+    "Python.BackgroundImageManager.executor": "Run",
+    "Python.audio_handler.executor": "Run",
+    "Python.audio_util.executor": "Run",
+    "Python.caption.executor": "Run",
+    "Python.chat-ollama-chroma.executor": "Run",
+    "Python.chat-ollama.executor": "Run",
+    "Python.danmu_server.executor": "Debug",
+    "Python.digital_people.executor": "Debug",
+    "Python.download.executor": "Run",
+    "Python.live_script_parser.executor": "Debug",
+    "Python.main.executor": "Run",
+    "Python.paddle_speech_tesst4.executor": "Run",
+    "Python.paddlespeech.executor": "Run",
+    "Python.paddlespeech_test1.executor": "Run",
+    "Python.paddlespeech_test2.executor": "Run",
+    "Python.paddlespeech_test3.executor": "Run",
+    "Python.recursively_split_by_character.executor": "Run",
+    "Python.socketio_sercer.executor": "Run",
+    "Python.tensor_patch_methods.executor": "Debug",
+    "Python.util.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/LLM/Wav2Lip-GFPGAN",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\workspace\DigitalPeople\DigitalPeople\live" />
@@ -327,6 +314,7 @@
       <workItem from="1722172087328" duration="9998000" />
       <workItem from="1722222612600" duration="4241000" />
       <workItem from="1722261644575" duration="11577000" />
+      <workItem from="1723300350173" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -512,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722178884144</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题">
+      <option name="closed" value="true" />
+      <created>1723300549045</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1723300549045</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +560,8 @@
     <MESSAGE value="feat:增加普通任务在执行期间遇到弹幕交互的处理逻辑，目前默认为播放一段过度语音。" />
     <MESSAGE value="feat:增加背景图片设置功能" />
     <MESSAGE value="feat:增加背景图片测试用例" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:增加背景图片测试用例" />
+    <MESSAGE value="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
