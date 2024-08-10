@@ -64,7 +64,7 @@ chat_ollama配置
 # chat_ollama服务地址
 chat_ollama_server_url = "http://127.0.0.1:3000"
 # 指令id
-chat_ollama_instruction_id = 3  # 知心姐姐
+chat_ollama_instruction_id = 3  # 可以到chat_ollama管理页面通过浏览器调试工具查看各指令的id
 # 是否使用指令
 chat_ollama_use_instruction = True
 # 知识库id
@@ -78,6 +78,10 @@ chat_ollama_family = "llama"
 # chat_ollama_model = "llama:latest"
 # chat_ollama_model = "glm4:9b"
 chat_ollama_model = "llama3.1:8b"
+
+# 系统提示词
+chat_ollama_system_prompt=("请忽略之前的对话,你现在充当一个直播平台的主播，为观众提供有趣的回答，你的回答不能出现markdown"
+                           "的公式，如果遇到公式、数字、表达式等，请转换为能直接读出来的语言。并且记住，你的回答不能出现任何表情、反动、政治敏感、色情、赌博、毒品等内容，如果你认为出现了这些内容，你直接回复我不知道即可。")
 
 """
 audio2face配置

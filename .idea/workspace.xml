@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="update gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatollama/chat_ollama_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatollama/chat_ollama_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +315,7 @@
       <workItem from="1722172087328" duration="9998000" />
       <workItem from="1722222612600" duration="4241000" />
       <workItem from="1722261644575" duration="11577000" />
-      <workItem from="1723300350173" duration="362000" />
+      <workItem from="1723300350173" duration="1424000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -508,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723300549045</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update gitignore">
+      <option name="closed" value="true" />
+      <created>1723300738553</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1723300738553</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +570,8 @@
     <MESSAGE value="feat:增加背景图片设置功能" />
     <MESSAGE value="feat:增加背景图片测试用例" />
     <MESSAGE value="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题" />
+    <MESSAGE value="update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

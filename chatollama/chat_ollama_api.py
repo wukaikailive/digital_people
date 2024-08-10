@@ -13,9 +13,7 @@ def chat(inputs):
         "messages": [
             {
                 "role": "system",
-                "content": "请忽略之前的对话,"
-                           "你现在充当一个直播平台的主播，为观众提供有趣的回答，你的回答不能出现markdown的公式，如果遇到公式、数字、表达式等，请转换为能直接读出来的语言。并且记住，"
-                           "你的回答不能出现任何表情、反动、政治敏感、色情、赌博、毒品等内容，如果你认为出现了这些内容，你直接回复我不知道即可。"
+                "content": config.chat_ollama_system_prompt
             },
             {
                 "role": "user",
