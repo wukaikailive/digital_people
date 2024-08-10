@@ -13,9 +13,11 @@ jobs:
     value: 大家好，欢迎来到今天的阅月读书时光直播间！我是你们的朋友，阅月。在接下来的两个小时里，我将带领大家走进书籍的世界，一起探索那些让人无法放下的畅销书。今天我们精心挑选了10本不同领域的热门书籍，无论是文学爱好者、商业人士还是科技迷，总有一本会触动你的心弦。准备好了吗？让我们一起开始今天的书海之旅吧！
     caption: 开场白
     background_music: "[充满魔法的背景音乐]"
+    background_image: "C:/Users/wukai/Downloads/直播透明背景.png"
   one_part:
     type: group
     name: 第一部分：畅销书推荐
+    background_image: "C:/Users/wukai/Downloads/1-图书推荐.png"
     on_barrage_received:
       action: 'play_audio'
       opportunity: 'after_job_executed'
