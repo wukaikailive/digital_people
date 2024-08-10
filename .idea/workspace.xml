@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="update gitignore">
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="refactor:提取chat_ollama_system_prompt参数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatollama/chat_ollama_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/chatollama/chat_ollama_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +313,7 @@
       <workItem from="1722172087328" duration="9998000" />
       <workItem from="1722222612600" duration="4241000" />
       <workItem from="1722261644575" duration="11577000" />
-      <workItem from="1723300350173" duration="1424000" />
+      <workItem from="1723300350173" duration="4997000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -517,7 +515,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723300738553</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="refactor:提取chat_ollama_system_prompt参数">
+      <option name="closed" value="true" />
+      <created>1723302830379</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1723302830379</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +577,8 @@
     <MESSAGE value="feat:增加背景图片测试用例" />
     <MESSAGE value="fix:修复互动任务空闲计时器在设置新的计时器时，旧的计时器未取消导致执行异常的问题" />
     <MESSAGE value="update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
+    <MESSAGE value="refactor:提取chat_ollama_system_prompt参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor:提取chat_ollama_system_prompt参数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
