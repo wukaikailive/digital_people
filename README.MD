@@ -11,9 +11,7 @@
 
 # 项目效果
 
-<video src="./docs/2024-08-11_01-13-49.flv" controls="controls" width="200" height="340"></video>
-
-或点击此链接查看
+点击此链接查看
 https://www.bilibili.com/video/BV1bgYJeCE55/?vd_source=94467fd1f84447c87ac3d86cb2606cff
 
 # 前提和说明

@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="refactor:添加license文件">
-      <change afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/2024-08-11_01-13-49.flv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/deploy.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/img-2.3.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/script.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/zanshang.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live/book/live-script-book.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/live/book/live-script-book.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts/exp/log/py_paddlespeech_test2.DESKTOP-49KRPSM.wukai.2024-06-27_12-24-56_129362.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts/exp/log/py_paddlespeech_test2.DESKTOP-49KRPSM.wukai.2024-06-27_12-25-08_295375.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts/output.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tts/source/paddlespeech测试.m4a" beforeDir="false" />
+    <list default="true" id="4544c103-20ec-448c-aa60-4dcd3eee5f5a" name="更改" comment="doc:添加readme和部署文档">
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,7 +306,7 @@
       <workItem from="1722172087328" duration="9998000" />
       <workItem from="1722222612600" duration="4241000" />
       <workItem from="1722261644575" duration="11577000" />
-      <workItem from="1723300350173" duration="10302000" />
+      <workItem from="1723300350173" duration="10434000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -536,7 +524,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723306872721</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="refactor:删除不必要的文件">
+      <option name="closed" value="true" />
+      <created>1723312223476</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1723312223476</updated>
+    </task>
+    <task id="LOCAL-00029" summary="doc:添加readme和部署文档">
+      <option name="closed" value="true" />
+      <created>1723312244463</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1723312244463</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,8 +571,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="init" />
-    <MESSAGE value="添加获取弹幕功能" />
     <MESSAGE value="refactor:增加全局变量和单元测试" />
     <MESSAGE value="refactor:增加gitignore文件" />
     <MESSAGE value="feat:增加文本分段生成语音并驱动嘴型的流程" />
@@ -592,7 +594,9 @@
     <MESSAGE value="update gitignore" />
     <MESSAGE value="refactor:提取chat_ollama_system_prompt参数" />
     <MESSAGE value="refactor:添加license文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor:添加license文件" />
+    <MESSAGE value="refactor:删除不必要的文件" />
+    <MESSAGE value="doc:添加readme和部署文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="doc:添加readme和部署文档" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
